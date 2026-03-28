@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FromZeroToFrog - Школа программирования в Ереване</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg p-3">
+        <div class="container border border-3 px-4 py-2 shadow-sm" style="border-color: #1b5e20 !important;">
+            <a class="navbar-brand fw-bold text-success" href="#"><img class="img-shadow" src="static/Normal_right.png"
+                    width="40px" alt=""> FromZeroToFrog</a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Обо мне</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Курсы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#workflow">Процесс</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-me">Почему я</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero-section container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 hero-info-card text-lg-start text-center">
+                <h1 class="hero-title mb-4">Прыгни в <span class="highlight">IT</span> <br>с <span
+                        class="highlight">From Zero To Frog</span></h1>
+                <p class="fs-5 text-light mb-4 opacity-75">Оффлайн школа программирования в Ереване. Пишем код, создаем
+                    игры, делаем ботов. В уютной атмосфере и с живым общением.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-lg-start justify-content-center">
+                    <a href="#courses" class="btn btn-frog-main btn-lg">Записаться на занятие</a>
+                    <a href="#workflow" class="btn btn-outline-frog btn-lg">Наш Метод</a>
+                </div>
+            </div>
+            <div class="col-lg-6 coding-frog-container text-center mt-5 mt-lg-0">
+                <div class="lilypad-glow"></div>
+                <img src="static/Normal.png" alt="Coding Frog on Lily Pad" class="mx-3 coding-frog-visual img-shadow">
+            </div>
+        </div>
+    </section>
+
+    <section id="pain-points" class="container mt-5 pt-5 mb-5">
+        <h2 class="text-center hero-title mb-5">Знакомая <span class="highlight">ситуация?</span></h2>
+
+        <div class="chat-interface mx-auto position-relative" style="max-width: 800px;" id="chat-container">
+            <div class="chat-group mb-3 hidden-message">
+                <div class="chat-message chat-left">
+                    <div class="chat-avatar bg-secondary bg-opacity-25 text-light"><i class="bi bi-person"></i></div>
+                    <div class="chat-bubble">
+                        <span class="chat-name">Родитель</span>
+                        <p class="mb-0">Мой ребенок сутками играет в игры, вообще не оторвать от экрана... 😩</p>
+                    </div>
+                </div>
+                <div class="chat-message chat-right delay-msg">
+                    <div class="chat-bubble">
+                        <span class="chat-name">FromZeroToFrog 🐸</span>
+                        <p class="mb-0">Хватит быть просто потребителем! Мы направим этот интерес в полезное русло:
+                            научим
+                            создавать свои режимы в Roblox и писать игры на Unity 🎮</p>
+                    </div>
+                    <div class="chat-avatar bg-success text-dark fw-bold"><img class="img-shadow"
+                            src="static/Normal.png" width="40px" alt=""></div>
+                </div>
+            </div>
+
+            <div class="chat-group my-3 hidden-message">
+                <div class="chat-message chat-left">
+                    <div class="chat-avatar bg-secondary bg-opacity-25 text-light"><i class="bi bi-person"></i></div>
+                    <div class="chat-bubble">
+                        <span class="chat-name">Студент</span>
+                        <p class="mb-0">Информатика в школе такая скучная. Рисуем в Paint, учим теорию из старых
+                            учебников
+                            🙄</p>
+                    </div>
+                </div>
+                <div class="chat-message chat-right delay-msg">
+                    <div class="chat-bubble">
+                        <span class="chat-name">FromZeroToFrog 🐸</span>
+                        <p class="mb-0">Забудьте про 2010 год! У нас минимум воды: сразу пишем реальных Telegram-ботов и
+                            работаем с современным кодом 💻</p>
+                    </div>
+                    <div class="chat-avatar bg-success text-dark fw-bold"><img class="img-shadow"
+                            src="static/Normal.png" width="40px" alt=""></div>
+                </div>
+            </div>
+
+            <div class="chat-group hidden-message">
+                <div class="chat-message chat-left">
+                    <div class="chat-avatar bg-secondary bg-opacity-25 text-light"><i class="bi bi-person"></i></div>
+                    <div class="chat-bubble">
+                        <span class="chat-name">Новичок</span>
+                        <p class="mb-0">Хочется в IT, но вообще не понимаю, с чего начать. Страшно, что не потяну 🤔</p>
+                    </div>
+                </div>
+                <div class="chat-message chat-right delay-msg">
+                    <div class="chat-bubble">
+                        <span class="chat-name">FromZeroToFrog 🐸</span>
+                        <p class="mb-0">Всё потянешь! Даем крепкую базу, развиваем логику и вместе собираем первое
+                            крутое
+                            портфолио 🚀</p>
+                    </div>
+                    <div class="chat-avatar bg-success text-dark fw-bold"><img class="img-shadow"
+                            src="static/Normal.png" width="40px" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="container mt-5 pt-5 mb-5 text-center roadmap-container">
+        <h2 class="hero-title">Чему мы <span class="highlight">научим</span></h2>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-12 col-xl-10 portfolio-slider-wrapper position-relative px-0 px-md-5 overflow-hidden">
+
+                <div class="portfolio-track-container">
+                    <div class="portfolio-track">
+
+                        <div class="portfolio-slide">
+                            <div class="portfolio-card d-flex flex-column flex-lg-row align-items-center gap-4">
+
+                                <div class="project-image-wrapper position-relative flex-shrink-0">
+                                    <div class="project-img border-dashed img-shadow">
+                                        <img src="static/Project1.png" alt="">
+                                    </div>
+                                    <div class="student-frog-art position-absolute student-frog-art-one">
+                                        <img src="static/Student1.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="portfolio-details text-start flex-grow-1 p-3">
+                                    <h4 class="student-full-name mb-1 highlight">Анна Ковалева</h4>
+                                    <p class="course-badge mb-3"><strong>Курс:</strong> Scratch </p>
+                                    <p class="project-desc fs-6 text-light opacity-75">Создала полный ремейк игры Doodle
+                                        Jump, проработала физику, различные виды платформ, игровую логику и перемещение.
+                                        Разобралась с системой очков, и рекордами. Было сложно, но преподаватель был
+                                        всегда рядом!</p>
+                                    <a href="https://scratch.mit.edu/projects/1086809006" target="_blank"
+                                        class="btn btn-outline-frog btn-sm mt-2">Поиграть в игру</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-slide">
+                            <div class="portfolio-card d-flex flex-column flex-lg-row align-items-center gap-4">
+
+                                <div class="project-image-wrapper position-relative flex-shrink-0">
+                                    <div class="project-img border-dashed img-shadow">
+                                        <img src="static/Project2.png" alt="">
+                                    </div>
+                                    <div class="student-frog-art position-absolute student-frog-art-one">
+                                        <img src="static/Student2.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="portfolio-details text-start flex-grow-1 p-3">
+                                    <h4 class="student-full-name mb-1 highlight">Артур Ветровских</h4>
+                                    <p class="course-badge mb-3"><strong>Курс:</strong> Roblox </p>
+                                    <p class="project-desc fs-6 text-light opacity-75"> Разработал свой Obby в сеттинге
+                                        больших предметов на кухне. Самостоятельно написал множество скриптов, от
+                                        отслеживания времени прохождения и записи рекордов, до перемещения платформ и
+                                        других препятствий. </p>
+                                    <a href="#" class="btn btn-outline-frog btn-sm mt-2">Посмотреть код</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="portfolio-slide">
+                            <div class="portfolio-card d-flex flex-column flex-lg-row align-items-center gap-4">
+
+                                <div class="project-image-wrapper position-relative flex-shrink-0">
+                                    <div class="project-img border-dashed img-shadow">
+                                        <img src="static/Project3.png" alt="">
+                                    </div>
+                                    <div class="student-frog-art position-absolute student-frog-art-one">
+                                        <img src="static/Student3.png" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="portfolio-details text-start flex-grow-1 p-3">
+                                    <h4 class="student-full-name mb-1 highlight">Николай Королев</h4>
+                                    <p class="course-badge mb-3"><strong>Курс:</strong> Unity/Blender </p>
+                                    <p class="project-desc fs-6 text-light opacity-75"> Для своей игры полностью сделал
+                                        ассеты с нуля - всех персонажей, анимации, текстуры. </p>
+                                    <a href="#courses" class="btn btn-outline-frog btn-sm mt-2">Попробовать самому</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button
+                    class="btn btn-outline-frog btn-sm position-absolute start-0 top-50 translate-middle-y ms-2 px-2 py-1 portfolio-prev-btn"
+                    style="z-index: 10;">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+                <button
+                    class="btn btn-outline-frog btn-sm position-absolute end-0 top-50 translate-middle-y me-2 px-2 py-1 portfolio-next-btn"
+                    style="z-index: 10;">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container mb-5">
+        <h2 class="text-center hero-title mb-5">Главный <span class="highlight">наставник</span></h2>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="teacher-card position-relative">
+
+                    <div class="row align-items-center g-4 g-md-5">
+
+                        <div class="col-md-5 text-center position-relative">
+                            <div class="teacher-photo-wrapper mx-auto">
+                                <div class="teacher-glow"></div>
+                                <img src="static/Me.png" alt="Даниил - Ментор" class="teacher-img">
+                            </div>
+                            <div class="mt-4">
+                                <span class="badge color-senior-bg fs-6 px-4 py-2 rounded-pill shadow-sm">
+                                    Level: Senior
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h3 class="fw-bold text-heading mb-1">Привет! Я Даниил 👋</h3>
+                            <p class="teacher-role font-monospace small mb-4">Разработчик & Проводник в мир IT</p>
+
+                            <p class="text-main opacity-75 mb-3">
+                                В моем детстве информатика была скучной: мы рисовали в Paint и читали теорию. Поэтому я
+                                создал школу, в которой хотел бы учиться сам.
+                            </p>
+                            <p class="text-main opacity-75 mb-4">
+                                Я действующий разработчик. Моя цель — показать ребятам, что писать код — это как
+                                обладать суперсилой. Мы не зубрим учебники, а сразу пишем свои игры, ботов и сайты.
+                            </p>
+
+                            <div class="teacher-stats d-flex flex-wrap gap-2 gap-md-3 mb-4">
+                                <div class="stat-badge">
+                                    <span class="code-icon color-junior">&gt;_</span>
+                                    <span>5 лет в IT</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="code-icon color-middle">[]</span>
+                                    <span>1000+ учеников</span>
+                                </div>
+                                <div class="stat-badge">
+                                    <span class="code-icon color-senior">&lt;/&gt;</span>
+                                    <span>Python, Unity, Roblox</span>
+                                </div>
+                            </div>
+
+                            <div class="teacher-quote">
+                                "Моя главная задача — сделать так, чтобы ребенок перестал быть просто потребителем
+                                контента, и стал его создателем."
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="courses" class="container mt-5 pt-5 mb-5">
+        <h2 class="text-center hero-title mb-5">Путь от <span class="highlight">головастика</span> до <span
+                class="highlight">PRO-фрога</span></h2>
+
+        <div class="row g-4 roadmap-container position-relative">
+            <div class="col-lg-4">
+                <div class="roadmap-card junior" data-aos="fade-up">
+                    <div class="roadmap-badge color-junior-bg">Level: Beginner</div>
+
+                    <div class="roadmap-header">
+                        <img src="static/Junior.png" class="img-shadow roadmap-img" alt="Junior Frog">
+                        <div class="roadmap-title-overlay">
+                            <h3 class="fw-bold color-junior mb-0">JUNIOR FROG</h3>
+                            <p class="age-label mb-0">7–10 лет</p>
+                        </div>
+                    </div>
+
+                    <hr class="border-secondary mt-3 mb-3">
+
+                    <div class="roadmap-content">
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-junior-bg"></div>
+                            <span><strong>Компьютерная грамотность:</strong> файлы, слепая печать, безопасность.</span>
+                        </div>
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-junior-bg"></div>
+                            <span><strong>Scratch:</strong> основы логики через создание игр и мультфильмов.</span>
+                        </div>
+                    </div>
+                    <a href="#contacts" class="btn btn-outline-frog w-100 mt-4">Начать путь</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="roadmap-card middle" data-aos="fade-up" data-aos-delay="100">
+                    <div class="roadmap-badge color-middle-bg">Level: Middle</div>
+
+                    <div class="roadmap-header">
+                        <img src="static/Middle.png" class="img-shadow roadmap-img" alt="Middle Frog">
+                        <div class="roadmap-title-overlay">
+                            <h3 class="fw-bold color-middle mb-0">MIDDLE FROG</h3>
+                            <p class="age-label mb-0">11–14 лет</p>
+                        </div>
+                    </div>
+
+                    <hr class="border-secondary mt-3 mb-3">
+
+                    <div class="roadmap-content">
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-middle-bg"></div>
+                            <span><strong>Roblox:</strong> создание миров и скриптинг на языке Lua.</span>
+                        </div>
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-middle-bg"></div>
+                            <span><strong>Unity:</strong> погружение в C# и 3D-разработку.</span>
+                        </div>
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-middle-bg"></div>
+                            <span><strong>Python:</strong> изучение синтаксиса и первых алгоритмов.</span>
+                        </div>
+                    </div>
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 shadow-sm">Хочу сюда</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="roadmap-card senior" data-aos="fade-up" data-aos-delay="200">
+                    <div class="roadmap-badge color-senior-bg">Level: Senior</div>
+
+                    <div class="roadmap-header">
+                        <img src="static/Senior.png" class="img-shadow roadmap-img" alt="Senior Frog">
+                        <div class="roadmap-title-overlay">
+                            <h3 class="fw-bold color-senior mb-0">SENIOR FROG</h3>
+                            <p class="age-label mb-0">15+ лет и взрослые</p>
+                        </div>
+                    </div>
+
+                    <hr class="border-secondary mt-3 mb-3">
+
+                    <div class="roadmap-content">
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-senior-bg"></div>
+                            <span><strong>Python Backend:</strong> работа с данными, API и серверами.</span>
+                        </div>
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-senior-bg"></div>
+                            <span><strong>Создание сайтов:</strong> современная верстка и UI/UX.</span>
+                        </div>
+                        <div class="course-item">
+                            <div class="lilypad-bullet color-senior-bg"></div>
+                            <span><strong>Fullstack:</strong> запуск полноценных веб-приложений.</span>
+                        </div>
+                    </div>
+                    <a href="#contacts" class="btn btn-outline-frog  w-100 mt-4"
+                        style="border-radius: 30px; font-weight: 800;">Стать профи</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="container mt-5 pt-5 mb-5">
+        <h2 class="text-center hero-title mb-5">Сколько стоит <span class="highlight">вклад в будущее?</span></h2>
+
+        <div class="row g-4 justify-content-center pt-3">
+            <div class="col-lg-5">
+                <div class="pricing-card-modern p-4 position-relative h-100 d-flex flex-column popular-card">
+                    <div class="popular-badge">ПОПУЛЯРНЫЙ ФОРМАТ</div>
+
+                    <div class="mb-4">
+                        <img class="pricing-card-img" src="static/Group.png" alt="">
+                    </div>
+
+                    <h3 class="fw-bold mb-3">Командный формат</h3>
+                    <p class="text-light opacity-75 small mb-4">
+                        Живое общение и работа в мини-группе. Идеально для социализации, обмена опытом и работы над
+                        совместными проектами.
+                    </p>
+
+                    <div class="price-box mt-auto mb-4 p-3 rounded-4">
+                        <div class="text-light opacity-75 small mb-1">Абонемент на месяц (4 занятия)</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="price-main">
+                                <span class="fs-1 fw-bold text-white">35 000</span>
+                                <span class="fs-5 text-light opacity-75">AMD</span>
+                            </div>
+                            <div class="rub-price px-3 py-2 rounded-3">
+                                ~ 8 100 RUB
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 py-3 fs-5">Выбрать группу</a>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="pricing-card-modern p-4 position-relative h-100 d-flex flex-column">
+
+                    <div class="mb-4">
+                        <img class="pricing-card-img" src="static/Solo.png" alt="" width="100%">
+                    </div>
+
+                    <h3 class="fw-bold mb-3">Индивидуально</h3>
+                    <p class="text-light opacity-75 small mb-4">
+                        Формат 1 на 1 с преподавателем. Персональный темп, углубленное изучение тем и фокус только на
+                        ваших задачах.
+                    </p>
+
+                    <div class="price-box mt-auto mb-4 p-3 rounded-4">
+                        <div class="text-light opacity-75 small mb-1">Разовое занятие (1 час)</div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="price-main">
+                                <span class="fs-1 fw-bold text-white">10 000</span>
+                                <span class="fs-5 text-light opacity-75">AMD</span>
+                            </div>
+                            <div class="rub-price px-3 py-2 rounded-3">
+                                ~ 2 300 RUB
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contacts" class="btn btn-outline-frog w-100 py-3 fs-5">Записаться на урок</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workflow" class="container mt-5 pt-5 mb-5">
+        <h2 class="hero-title mb-5 text-center">Как проходят наши занятия</h2>
+
+        <div class="frog-timeline-container">
+            <div class="timeline-step">
+                <div class="frog-art"> <img class="img-shadow" src="static/Theory.png" alt=""></div>
+                <div class="lilypad"></div>
+                <div
+                    class="course-text p-4 border border-1 border-light border-opacity-25 rounded-4 bg-dark bg-opacity-25 shadow-lg relative-z">
+                    <h5>Теория</h5>
+                    <p class="text-light opacity-75 mb-0 small">Разбираем тему на пальцах и примерах. Смотрим на код,
+                        разбираем логику, понимаем "зачем это нужно". Живое общение и дискуссии.</p>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="frog-art"> <img class="img-shadow" src="static/Normal.png" alt=""></div>
+                <div class="lilypad"></div>
+                <div
+                    class="course-text p-4 border border-1 border-light border-opacity-25 rounded-4 bg-dark bg-opacity-25 shadow-lg relative-z">
+                    <h5>Практика</h5>
+                    <p class="text-light opacity-75 mb-0 small">Сразу пишем код. Ошибаемся, проверяем, находим решения.
+                        Вместе проходим путь от пустой строки до работающего чистого кода.</p>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="frog-art"> <img class="img-shadow" src="static/Game.png" alt=""></div>
+                <div class="lilypad"></div>
+                <div
+                    class="course-text p-4 border border-1 border-light border-opacity-25 rounded-4 bg-dark bg-opacity-25 shadow-lg relative-z">
+                    <h5>Свой проект</h5>
+                    <p class="text-light opacity-75 mb-0 small">Интегрируем полученные знания в небольшой проект.
+                        Создаем от
+                        первой Obby в Roblox до полноценного Web-приложения.</p>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="frog-art"> <img class="img-shadow" src="static/Chill.png" alt=""></div>
+                <div class="lilypad"></div>
+                <div
+                    class="course-text p-4 border border-1 border-light border-opacity-25 rounded-4 bg-dark bg-opacity-25 shadow-lg relative-z">
+                    <h5>Фидбек</h5>
+                    <p class="text-light opacity-75 mb-0 small">Обсуждаем ошибки и закрепляем результат. Анализируем как
+                        можно улучшить код и какие слабые места стоит повторить.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="container mt-5 pt-5 mb-5 text-center">
+        <h2 class="hero-title mb-5">Что говорят <span class="highlight">родители и ученики</span></h2>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8 review-slider-wrapper position-relative px-0 px-md-5 overflow-hidden">
+
+                <div class="review-track-container">
+                    <div class="review-track d-flex">
+
+                        <div class="review-slide flex-shrink-0 w-100 px-2">
+                            <div class="review-card-simple">
+                                <div class="review-screenshot-wrapper">
+                                    <img src="static/Review1.png" alt="Отзыв" class="review-img img-fluid">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-slide flex-shrink-0 w-100 px-2">
+                            <div class="review-card-simple">
+                                <div class="review-screenshot-wrapper">
+                                    <img src="static/Review2.png" alt="Отзыв" class="review-img img-fluid">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button
+                    class="btn btn-outline-frog btn-sm position-absolute start-0 top-50 translate-middle-y ms-n2 ms-md-2 prev-btn"
+                    style="z-index: 10;">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
+                <button
+                    class="btn btn-outline-frog btn-sm position-absolute end-0 top-50 translate-middle-y me-n2 me-md-2 next-btn"
+                    style="z-index: 10;">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="container mt-5 pt-5 mb-5">
+        <h2 class="text-center hero-title mb-5">Частые <span class="highlight">вопросы</span> (FAQ)</h2>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- Обертка аккордеона -->
+                <div class="accordion custom-accordion" id="frogFaq">
+                    
+                    <!-- Вопрос 1 -->
+                    <div class="accordion-item faq-item mb-3">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button faq-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <span class="faq-prompt">&gt;_</span> Нужен ли мощный компьютер?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#frogFaq">
+                            <div class="accordion-body faq-body">
+                                Нет! Для старта (Roblox, Python, создание сайтов) подойдет любой базовый ноутбук или ПК. Главное — стабильный интернет, наушники с микрофоном и мышка (на тачпаде кодить неудобно). Мы используем современные среды разработки, которые не тормозят даже на слабых машинах.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 2 -->
+                    <div class="accordion-item faq-item mb-3">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button faq-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <span class="faq-prompt">&gt;_</span> Что если ребенок раньше никогда не программировал?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#frogFaq">
+                            <div class="accordion-body faq-body">
+                                Это идеальный сценарий! Программа выстроена с полного нуля (отсюда и название нашей школы). Мы объясняем сложные вещи на понятном детям языке: через игры, аналогии и практику. Ребенок напишет свою первую мини-игру уже на первом занятии.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 3 -->
+                    <div class="accordion-item faq-item mb-3">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button faq-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <span class="faq-prompt">&gt;_</span> Как проходят онлайн-уроки? Это как в школе в Zoom?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#frogFaq">
+                            <div class="accordion-body faq-body">
+                                Никаких скучных лекций! Мы созваниваемся в Discord или Google Meet, ребенок расшаривает свой экран, и мы вместе пишем код. Это 100% практика и живое общение с ментором, который направляет, а не просто читает по бумажке.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Вопрос 4 -->
+                    <div class="accordion-item faq-item mb-3">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button faq-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <span class="faq-prompt">&gt;_</span> Что делать, если мы пропустим занятие (болезнь/отпуск)?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#frogFaq">
+                            <div class="accordion-body faq-body">
+                                Ничего страшного. Занятие не сгорает. Просто предупредите нас заранее, и мы перенесем урок на другое удобное для вас время. Ваш прогресс сохраняется в нашей системе.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts" class="footer-section container-fluid mt-5">
+        <div class="peeking-frog-footer-new"><img src="static/Peeking.png" alt="Peeking Frog"></div>
+
+        <div class="container footer-contact-card text-center text-lg-start">
+            <div class="row align-items-center">
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="hero-title mb-4"><span class="highlight">Жду</span> тебя на занятиях!</h2>
+
+                    <p class="fs-5 text-main mb-4">
+                        Начнем путь в IT вместе. Запишись на <strong>бесплатное пробное занятие онлайн</strong>,
+                        чтобы создать свой первый проект и познакомиться с форматом обучения.
+                    </p>
+
+                    <div class="d-flex flex-column gap-3 fs-5 fw-bold justify-content-lg-start justify-content-center">
+                        <div class="contact-item text-main">
+                            <i class="bi bi-laptop highlight me-2"></i>
+                            Пробное занятие: <span class="highlight">БЕСПЛАТНО</span>
+                        </div>
+
+                        <a href="https://t.me/from0tofrog" target="_blank"
+                            class="text-decoration-none text-main contact-link">
+                            <i class="bi bi-telegram highlight me-2"></i> @from0tofrog
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 position-relative text-center">
+                    <div class="p-4 rounded-4 rotate-2 shadow-lg"
+                        style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.25);">
+                        <h4 class="mb-3 hero-title highlight" style="font-size: 2rem;">Забронировать место</h4>
+
+                        <p class="small text-main mb-4" style="opacity: 0.9;">
+                            Первый онлайн-урок — 0₽. <br> Выбери удобное время в календаре или задай вопрос, если остались
+                            сомнения!
+                        </p>
+
+                        <div class="d-flex flex-column gap-3">
+                            <button type="button" class="btn btn-frog-main btn-lg w-100 py-3 shadow-glow"
+                                data-bs-toggle="modal" data-bs-target="#calendlyModal">
+                                Хочу пробный урок
+                            </button>
+
+                            <a href="https://t.me/from0tofrog" target="_blank"
+                                class="btn btn-outline-frog btn-lg w-100 py-3">
+                                <i class="bi bi-telegram me-2"></i> Задать вопрос
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-5" style="border-color: rgba(var(--accent-primary-rgb), 0.25);">
+
+            <p class="text-center fw-bold text-main mb-0" style="opacity: 0.5;">
+                © 2026 FromZeroToFrog. Сделано с любовью к коду и лягухам.
+            </p>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="calendlyModal" tabindex="-1" aria-labelledby="calendlyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+            <div class="modal-content text-main shadow-lg"
+                style="background-color: var(--bg-card); border: 2px solid var(--accent-primary);">
+
+                <div class="modal-header" style="border-bottom: 1px solid rgba(var(--accent-primary-rgb), 0.25);">
+                    <h5 class="modal-title hero-title" id="calendlyModalLabel" style="font-size: 1.8rem;">Запись на
+                        <span class="highlight">урок</span></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Закрыть"></button>
+                </div>
+
+                <div class="modal-body p-0">
+                    <div class="calendly-inline-widget"
+                        data-url="https://calendly.com/turbocoderwtf/30min"
+                        style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                        async></script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
