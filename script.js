@@ -418,7 +418,29 @@ document.addEventListener('DOMContentLoaded', function () {
                 spawnParticleBurst(frogWrapper, 6); // Маленький всплеск (6 партиклов)
             });
         });
+
+        
     }
+    // 8 - печатание
+    const frogImg = document.querySelector('.coding-frog-visual');
+    const normalSrc = 'static/Normal_no_pupils.png';
+    const typingSrc = 'static/Typing.png'; // Убедись, что название файла верное
+    
+    let typingTimer;
+
+    // Слушаем нажатие любой клавиши на странице
+    window.addEventListener('keydown', (e) => {
+        // Игнорируем системные клавиши (Shift, Alt, и т.д.), если нужно
+        if (e.repeat) return; // Чтобы не мигало бешено при зажатой клавише
+
+        frogImg.src = typingSrc;
+
+
+        // Возвращаем исходную картинку через 150 мс
+        typingTimer = setTimeout(() => {
+            frogImg.src = normalSrc;
+        }, 150); 
+    });
 });
 
 // Функция для перехода к контактам после квиза (вынесена за DOMContentLoaded, так как может вызываться из inline-onclick)
