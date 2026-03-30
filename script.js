@@ -419,27 +419,30 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        
+
     }
     // 8 - печатание
     const frogImg = document.querySelector('.coding-frog-visual');
     const normalSrc = 'static/Normal_no_pupils.png';
-    const typingSrc = 'static/Typing.png'; // Убедись, что название файла верное
-    
-    let typingTimer;
+    const typingSrc = 'static/Typing.png';
 
-    // Слушаем нажатие любой клавиши на странице
-    window.addEventListener('keydown', (e) => {
-        // Игнорируем системные клавиши (Shift, Alt, и т.д.), если нужно
-        if (e.repeat) return; // Чтобы не мигало бешено при зажатой клавише
-
+    function showTypingFrog() {
         frogImg.src = typingSrc;
 
-
-        // Возвращаем исходную картинку через 150 мс
-        typingTimer = setTimeout(() => {
+        setTimeout(() => {
             frogImg.src = normalSrc;
-        }, 150); 
+        }, 150);
+    }
+
+    // Клавиатура
+    window.addEventListener('keydown', (e) => {
+        if (e.repeat) return;
+        showTypingFrog();
+    });
+
+    // Мышь + палец
+    frogWrapper.addEventListener('pointerdown', () => {
+        showTypingFrog();
     });
 });
 

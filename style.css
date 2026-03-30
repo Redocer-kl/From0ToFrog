@@ -160,6 +160,9 @@ body::before {
     display: inline-block;
     width: 100%;
     max-width: 480px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 .coding-frog-visual {
