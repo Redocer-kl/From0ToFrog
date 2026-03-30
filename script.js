@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     // ==========================================
     // 1. АНИМАЦИЯ ЧАТА (Intersection Observer)
     // ==========================================
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     messages.forEach((msg, index) => {
                         setTimeout(() => {
                             msg.classList.add('visible');
-                        }, index * 1500); 
+                        }, index * 1500);
                     });
                     observer.unobserve(entry.target);
                 }
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (portfolioTrack && portfolioNextBtn && portfolioPrevBtn) {
         let portfolioIndex = 0;
         let portfolioAutoPlayInterval;
-        const intervalTime = 10000; 
+        const intervalTime = 10000;
 
         function updatePortfolioSlider() {
             portfolioTrack.style.transform = `translateX(-${portfolioIndex * 100}%)`;
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         function startPortfolioAutoPlay() {
-            clearInterval(portfolioAutoPlayInterval); 
+            clearInterval(portfolioAutoPlayInterval);
             portfolioAutoPlayInterval = setInterval(nextPortfolioSlide, intervalTime);
         }
 
@@ -182,9 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentQuestion = quizData[currentQuestionIndex];
         if (stepEl) stepEl.innerText = `Вопрос ${currentQuestionIndex + 1} / ${quizData.length}`;
         if (questionEl) questionEl.innerText = currentQuestion.question;
-        
+
         if (answersEl) {
-            answersEl.innerHTML = ""; 
+            answersEl.innerHTML = "";
             currentQuestion.answers.forEach(answer => {
                 const button = document.createElement("button");
                 button.innerText = answer.text;
@@ -199,9 +199,9 @@ document.addEventListener('DOMContentLoaded', function() {
         userScores.junior += points.junior;
         userScores.middle += points.middle;
         userScores.senior += points.senior;
-        
+
         currentQuestionIndex++;
-        
+
         if (currentQuestionIndex < quizData.length) {
             showQuestion();
         } else {
@@ -212,28 +212,28 @@ document.addEventListener('DOMContentLoaded', function() {
     function showResult() {
         if (quizContainer) quizContainer.classList.add("d-none");
         if (resultContainer) resultContainer.classList.remove("d-none");
-       
+
         let maxScore = 0;
         let winningLevel = "junior";
-        
+
         for (const [level, score] of Object.entries(userScores)) {
             if (score > maxScore) {
                 maxScore = score;
                 winningLevel = level;
             }
         }
-        
+
         const result = resultsData[winningLevel];
-        
+
         const resultImg = document.getElementById("result-img");
         if (resultImg) resultImg.src = result.img;
-        
+
         const titleEl = document.getElementById("result-title");
         if (titleEl) {
             titleEl.innerText = result.title;
             titleEl.className = `fw-bold mb-2 ${result.colorClass}`;
         }
-        
+
         const textEl = document.getElementById("result-text");
         if (textEl) textEl.innerText = result.text;
     }
@@ -258,6 +258,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const pupilLeft = document.querySelector('.pupil-left');
     const pupilRight = document.querySelector('.pupil-right');
 
+    let lastClientX = null;
+    let lastClientY = null;
+    let rafId = null;
+
     const movePupil = (pupil, clientX, clientY) => {
         if (!pupil) return;
 
@@ -266,11 +270,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const rect = eye.getBoundingClientRect();
 
-        // Центр глаза
         const eyeCenterX = rect.left + rect.width / 2;
         const eyeCenterY = rect.top + rect.height / 2;
 
-        // Расчет угла
         const angle = Math.atan2(clientY - eyeCenterY, clientX - eyeCenterX);
 
         const eyeRadiusX = rect.width / 2;
@@ -281,10 +283,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const maxRadiusX = eyeRadiusX - pupilRadiusX;
         const maxRadiusY = eyeRadiusY - pupilRadiusY;
 
-        // Ограничиваем движение
         const distance = Math.hypot(clientX - eyeCenterX, clientY - eyeCenterY);
         const maxDistance = Math.hypot(window.innerWidth, window.innerHeight);
-        const intensity = Math.min(1, distance / maxDistance * 3); // Умножаем на 3 для большей живости
+        const intensity = Math.min(1, (distance / maxDistance) * 3);
 
         const moveX = maxRadiusX * intensity;
         const moveY = maxRadiusY * intensity;
@@ -295,27 +296,49 @@ document.addEventListener('DOMContentLoaded', function() {
         pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
     };
 
-    // Функция для получения координат мыши ИЛИ пальца
+    const updateEyes = () => {
+        if (lastClientX === null || lastClientY === null) return;
+
+        movePupil(pupilLeft, lastClientX, lastClientY);
+        movePupil(pupilRight, lastClientX, lastClientY);
+    };
+
+    const scheduleUpdate = () => {
+        if (rafId) return;
+
+        rafId = requestAnimationFrame(() => {
+            rafId = null;
+            updateEyes();
+        });
+    };
+
     const handleMovement = (e) => {
         let clientX, clientY;
 
         if (e.touches && e.touches.length > 0) {
-            // Если это тач-событие (палец)
             clientX = e.touches[0].clientX;
             clientY = e.touches[0].clientY;
         } else {
-            // Если это мышь
             clientX = e.clientX;
             clientY = e.clientY;
         }
 
-        movePupil(pupilLeft, clientX, clientY);
-        movePupil(pupilRight, clientX, clientY);
+        lastClientX = clientX;
+        lastClientY = clientY;
+
+        updateEyes();
     };
 
-    // Слушаем и мышь, и свайпы по экрану
     document.addEventListener('mousemove', handleMovement);
     document.addEventListener('touchmove', handleMovement, { passive: true });
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+
+    window.addEventListener('mouseleave', () => {
+        lastClientX = null;
+        lastClientY = null;
+    });
     // 7. Партиклы
 
     // === НОВЫЙ КОД ДЛЯ ПАРТИКЛОВ ===
@@ -334,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 1. Создаем элемент span
         const particle = document.createElement('span');
         particle.className = 'frog-particle';
-        
+
         // 2. Выбираем случайный символ
         const randomSymbol = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
         particle.textContent = randomSymbol;
@@ -343,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Используем CSS переменные для анимации
         const angle = Math.random() * Math.PI * 2; // Случайный угол
         const distance = 200 + Math.random() * 120; // Дистанция разлета (от 80 до 150px)
-        
+
         const tx = Math.cos(angle) * distance;
         const ty = Math.sin(angle) * distance;
         const tr = (Math.random() - 0.5) * 180; // Случайный поворот (от -90 до 90 градусов)
@@ -352,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function() {
         particle.style.setProperty('--tx', `${tx}px`);
         particle.style.setProperty('--ty', `${ty}px`);
         particle.style.setProperty('--tr', `${tr}deg`);
-        
+
         // Позиционируем в центре обертки
         particle.style.top = '50%';
         particle.style.left = '50%';
@@ -364,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // чтобы не засорять память
         setTimeout(() => {
             particle.remove();
-        }, 1000); 
+        }, 1000);
     };
 
     // Функция создания "всплеска" партиклов
@@ -383,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
         heroSection.addEventListener('click', (e) => {
             // Если мы кликнули по кнопке, всплеск не создаем (у кнопок свой триггер)
             if (e.target.classList.contains('btn')) return;
-            
+
             spawnParticleBurst(frogWrapper, 15); // Большой всплеск (15 партиклов)
         });
 
@@ -404,12 +427,12 @@ function handleQuizSelection() {
     const modal = bootstrap.Modal.getInstance(modalEl);
 
     if (modal) modal.hide();
-    
+
     setTimeout(() => {
         const contactSection = document.querySelector('#contacts');
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: 'smooth' });
             history.pushState(null, null, '#contacts');
         }
-    }, 350); 
+    }, 350);
 }
