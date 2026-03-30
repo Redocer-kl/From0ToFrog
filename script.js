@@ -1,111 +1,407 @@
-
 document.addEventListener('DOMContentLoaded', function() {
+    
+    // ==========================================
+    // 1. АНИМАЦИЯ ЧАТА (Intersection Observer)
+    // ==========================================
     const chatContainer = document.getElementById('chat-container');
-    const messages = chatContainer.querySelectorAll('.hidden-message');
+    if (chatContainer) {
+        const messages = chatContainer.querySelectorAll('.hidden-message');
+        const observerOptions = { root: null, threshold: 0.3 };
 
-    const observerOptions = {
-        root: null,
-        threshold: 0.3 
-    };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    messages.forEach((msg, index) => {
+                        setTimeout(() => {
+                            msg.classList.add('visible');
+                        }, index * 1500); 
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                messages.forEach((msg, index) => {
-                    setTimeout(() => {
-                        msg.classList.add('visible');
-                    }, index * 1500); 
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    observer.observe(chatContainer);
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    const track = document.querySelector('.portfolio-track');
-    const slides = document.querySelectorAll('.portfolio-slide');
-    const nextBtn = document.querySelector('.portfolio-next-btn');
-    const prevBtn = document.querySelector('.portfolio-prev-btn');
-    const sliderWrapper = document.querySelector('.portfolio-slider-wrapper');
-
-    let index = 0;
-    let autoPlayInterval;
-    const intervalTime = 10000; 
-
-    // Функция обновления позиции слайдера
-    function updateSlider() {
-        track.style.transform = `translateX(-${index * 100}%)`;
+        observer.observe(chatContainer);
     }
 
-    // Функция для перехода к следующему слайду
-    function nextSlide() {
-        index = (index + 1) % slides.length;
-        updateSlider();
-    }
+    // ==========================================
+    // 2. СЛАЙДЕР ПОРТФОЛИО
+    // ==========================================
+    const portfolioTrack = document.querySelector('.portfolio-track');
+    const portfolioSlides = document.querySelectorAll('.portfolio-slide');
+    const portfolioNextBtn = document.querySelector('.portfolio-next-btn');
+    const portfolioPrevBtn = document.querySelector('.portfolio-prev-btn');
+    const portfolioSliderWrapper = document.querySelector('.portfolio-slider-wrapper');
 
-    // Функция для перехода к предыдущему слайду
-    function prevSlide() {
-        index = (index - 1 + slides.length) % slides.length;
-        updateSlider();
-    }
+    if (portfolioTrack && portfolioNextBtn && portfolioPrevBtn) {
+        let portfolioIndex = 0;
+        let portfolioAutoPlayInterval;
+        const intervalTime = 10000; 
 
-
-    function startAutoPlay() {
-        clearInterval(autoPlayInterval); 
-        autoPlayInterval = setInterval(nextSlide, intervalTime);
-    }
-
-    function stopAutoPlay() {
-        clearInterval(autoPlayInterval);
-    }
-
-    if (track && nextBtn && prevBtn) {
-        // Ручное переключение
-        nextBtn.addEventListener('click', () => {
-            stopAutoPlay(); // Останавливаем авто, когда пользователь жмет кнопки
-            nextSlide();
-            startAutoPlay(); // Запускаем авто снова
-        });
-
-        prevBtn.addEventListener('click', () => {
-            stopAutoPlay();
-            prevSlide();
-            startAutoPlay();
-        });
-
-        // Пауза при наведении мыши
-        if (sliderWrapper) {
-            sliderWrapper.addEventListener('mouseenter', stopAutoPlay);
-            sliderWrapper.addEventListener('mouseleave', startAutoPlay);
+        function updatePortfolioSlider() {
+            portfolioTrack.style.transform = `translateX(-${portfolioIndex * 100}%)`;
         }
 
-        // Запускаем автоплеи при загрузке
-        startAutoPlay();
+        function nextPortfolioSlide() {
+            portfolioIndex = (portfolioIndex + 1) % portfolioSlides.length;
+            updatePortfolioSlider();
+        }
+
+        function prevPortfolioSlide() {
+            portfolioIndex = (portfolioIndex - 1 + portfolioSlides.length) % portfolioSlides.length;
+            updatePortfolioSlider();
+        }
+
+        function startPortfolioAutoPlay() {
+            clearInterval(portfolioAutoPlayInterval); 
+            portfolioAutoPlayInterval = setInterval(nextPortfolioSlide, intervalTime);
+        }
+
+        function stopPortfolioAutoPlay() {
+            clearInterval(portfolioAutoPlayInterval);
+        }
+
+        portfolioNextBtn.addEventListener('click', () => {
+            stopPortfolioAutoPlay();
+            nextPortfolioSlide();
+            startPortfolioAutoPlay();
+        });
+
+        portfolioPrevBtn.addEventListener('click', () => {
+            stopPortfolioAutoPlay();
+            prevPortfolioSlide();
+            startPortfolioAutoPlay();
+        });
+
+        if (portfolioSliderWrapper) {
+            portfolioSliderWrapper.addEventListener('mouseenter', stopPortfolioAutoPlay);
+            portfolioSliderWrapper.addEventListener('mouseleave', startPortfolioAutoPlay);
+        }
+
+        startPortfolioAutoPlay();
+    }
+
+    // ==========================================
+    // 3. СЛАЙДЕР ОТЗЫВОВ (Исправленный)
+    // ==========================================
+    const reviewTrack = document.querySelector('.review-track');
+    const reviewSlides = document.querySelectorAll('.review-slide');
+    const reviewNextBtn = document.querySelector('.review-next-btn'); // Новые классы
+    const reviewPrevBtn = document.querySelector('.review-prev-btn'); // Новые классы
+
+    if (reviewTrack && reviewNextBtn && reviewPrevBtn) {
+        let reviewIndex = 0;
+
+        function updateReviewSlider() {
+            reviewTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
+        }
+
+        reviewNextBtn.addEventListener('click', () => {
+            reviewIndex = (reviewIndex + 1) % reviewSlides.length;
+            updateReviewSlider();
+        });
+
+        reviewPrevBtn.addEventListener('click', () => {
+            reviewIndex = (reviewIndex - 1 + reviewSlides.length) % reviewSlides.length;
+            updateReviewSlider();
+        });
+    }
+
+    // ==========================================
+    // 4. ЛОГИКА КВИЗА
+    // ==========================================
+    const quizData = [
+        {
+            question: "Чем ты больше всего любишь заниматься в свободное время?",
+            answers: [
+                { text: "Играть в крутые 3D-игры (Roblox, Minecraft)", points: { junior: 0, middle: 2, senior: 0 } },
+                { text: "Смотреть YouTube/TikTok и играть в простые игры", points: { junior: 2, middle: 0, senior: 0 } },
+                { text: "Зависать в интернете, смотреть как работают сайты", points: { junior: 0, middle: 0, senior: 2 } },
+                { text: "Пытаюсь понять, как заработать деньги в IT", points: { junior: 0, middle: 0, senior: 3 } }
+            ]
+        },
+        {
+            question: "Если бы ты создавал свой проект, что бы это было?",
+            answers: [
+                { text: "Мощный сайт или приложение с нейросетями", points: { junior: 0, middle: 0, senior: 2 } },
+                { text: "Своя собственная игра с открытым миром", points: { junior: 0, middle: 2, senior: 0 } },
+                { text: "Веселый мультик или мини-игра для друзей", points: { junior: 2, middle: 0, senior: 0 } },
+                { text: "Секретный сервер для хакеров", points: { junior: 0, middle: 1, senior: 2 } }
+            ]
+        },
+        {
+            question: "Какая суперспособность в программировании тебе нужна?",
+            answers: [
+                { text: "Оживлять персонажей из кубиков и блоков", points: { junior: 2, middle: 1, senior: 0 } },
+                { text: "Понимать сложный код и писать серьезные программы", points: { junior: 0, middle: 0, senior: 2 } },
+                { text: "Создавать целые миры и писать для них сценарии", points: { junior: 0, middle: 2, senior: 0 } },
+                { text: "Быстро и весело собирать проекты как из Лего", points: { junior: 2, middle: 0, senior: 0 } }
+            ]
+        }
+    ];
+
+    const resultsData = {
+        junior: {
+            title: "Ты — JUNIOR FROG! 🐸",
+            text: "Твой путь только начинается! Тебе идеально подойдет курс по Компьютерной грамотности и создание первых игр на Scratch. Будет весело и легко!",
+            img: "static/Junior.png",
+            colorClass: "color-junior"
+        },
+        middle: {
+            title: "Ты — MIDDLE FROG! 🐸🎮",
+            text: "Ты рожден для геймдева! Твой выбор — создание миров в Roblox и серьезная разработка на Unity. Пора делать свои хиты!",
+            img: "static/Middle.png",
+            colorClass: "color-middle"
+        },
+        senior: {
+            title: "Ты — SENIOR FROG! 🐸💻",
+            text: "Ты мыслишь как взрослый профи. Тебя ждут большие проекты, создание сайтов, Python и реальная магия бэкенда. IT-компании уже ждут!",
+            img: "static/Senior.png",
+            colorClass: "color-senior"
+        }
+    };
+
+    let currentQuestionIndex = 0;
+    let userScores = { junior: 0, middle: 0, senior: 0 };
+
+    const questionEl = document.getElementById("quiz-question");
+    const answersEl = document.getElementById("quiz-answers");
+    const stepEl = document.getElementById("quiz-step");
+    const quizContainer = document.getElementById("quiz-container");
+    const resultContainer = document.getElementById("quiz-result");
+
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        userScores = { junior: 0, middle: 0, senior: 0 };
+        if (quizContainer) quizContainer.classList.remove("d-none");
+        if (resultContainer) resultContainer.classList.add("d-none");
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const currentQuestion = quizData[currentQuestionIndex];
+        if (stepEl) stepEl.innerText = `Вопрос ${currentQuestionIndex + 1} / ${quizData.length}`;
+        if (questionEl) questionEl.innerText = currentQuestion.question;
+        
+        if (answersEl) {
+            answersEl.innerHTML = ""; 
+            currentQuestion.answers.forEach(answer => {
+                const button = document.createElement("button");
+                button.innerText = answer.text;
+                button.classList.add("btn", "quiz-btn-answer");
+                button.onclick = () => selectAnswer(answer.points);
+                answersEl.appendChild(button);
+            });
+        }
+    }
+
+    function selectAnswer(points) {
+        userScores.junior += points.junior;
+        userScores.middle += points.middle;
+        userScores.senior += points.senior;
+        
+        currentQuestionIndex++;
+        
+        if (currentQuestionIndex < quizData.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }
+
+    function showResult() {
+        if (quizContainer) quizContainer.classList.add("d-none");
+        if (resultContainer) resultContainer.classList.remove("d-none");
+       
+        let maxScore = 0;
+        let winningLevel = "junior";
+        
+        for (const [level, score] of Object.entries(userScores)) {
+            if (score > maxScore) {
+                maxScore = score;
+                winningLevel = level;
+            }
+        }
+        
+        const result = resultsData[winningLevel];
+        
+        const resultImg = document.getElementById("result-img");
+        if (resultImg) resultImg.src = result.img;
+        
+        const titleEl = document.getElementById("result-title");
+        if (titleEl) {
+            titleEl.innerText = result.title;
+            titleEl.className = `fw-bold mb-2 ${result.colorClass}`;
+        }
+        
+        const textEl = document.getElementById("result-text");
+        if (textEl) textEl.innerText = result.text;
+    }
+
+    const quizModalEl = document.getElementById('frogQuizModal');
+    if (quizModalEl) {
+        quizModalEl.addEventListener('show.bs.modal', startQuiz);
+    }
+
+    // ==========================================
+    // 5. НАВИГАЦИЯ И ДР. МЕЛОЧИ
+    // ==========================================
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbar = document.querySelector('.navbar-collapse');
+            const bsCollapse = bootstrap.Collapse.getInstance(navbar);
+            if (bsCollapse) bsCollapse.hide();
+        });
+    });
+
+    // 6. Глаза
+    const pupilLeft = document.getElementById('pupil-left') || document.querySelector('.pupil-left');
+    const pupilRight = document.getElementById('pupil-right') || document.querySelector('.pupil-right');
+
+    const pupils = [pupilLeft, pupilRight];
+
+    // Функция, чтобы избежать дублирования кода
+    const movePupil = (pupil, event) => {
+        if (!pupil) return; // Если зрачок не найден, выходим
+
+        const eye = pupil.parentElement;
+        if (!eye) return;
+
+        const rect = eye.getBoundingClientRect();
+
+        // Центр глаза
+        const eyeCenterX = rect.left + rect.width / 2;
+        const eyeCenterY = rect.top + rect.height / 2;
+
+        // Расчет угла
+        const angle = Math.atan2(event.clientY - eyeCenterY, event.clientX - eyeCenterX);
+
+        // Расчет ограничения движения:
+        // Используем меньший радиус (ширину или высоту) для ограничения,
+        // но с учетом формы зрачка. Это немного сложнее, но для эллипсов
+        // работает лучше.
+        // Более простое решение: maxRadius = (rect.width / 2) - (pupil.offsetWidth / 2);
+        const eyeRadiusX = rect.width / 2;
+        const eyeRadiusY = rect.height / 2;
+        const pupilRadiusX = pupil.offsetWidth / 2;
+        const pupilRadiusY = pupil.offsetHeight / 2;
+
+        // Учитываем форму эллиптического зрачка
+        const maxRadiusX = eyeRadiusX - pupilRadiusX;
+        const maxRadiusY = eyeRadiusY - pupilRadiusY;
+
+        // Рассчитываем смещение на основе полярных координат
+        const moveRadiusX = maxRadiusX * Math.min(1, Math.hypot(event.clientX - eyeCenterX, event.clientY - eyeCenterY) / Math.hypot(window.innerWidth, window.innerHeight));
+        const moveRadiusY = maxRadiusY * Math.min(1, Math.hypot(event.clientX - eyeCenterX, event.clientY - eyeCenterY) / Math.hypot(window.innerWidth, window.innerHeight));
+
+        // Применяем эллиптическое ограничение
+        const pupilX = Math.cos(angle) * moveRadiusX;
+        const pupilY = Math.sin(angle) * moveRadiusY;
+
+        // Применяем стили
+        pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
+    };
+
+    document.addEventListener('mousemove', (e) => {
+        // Двигаем оба зрачка
+        movePupil(pupilLeft, e);
+        movePupil(pupilRight, e);
+    });
+
+    // 7. Партиклы
+
+    // === НОВЫЙ КОД ДЛЯ ПАРТИКЛОВ ===
+
+    const heroSection = document.getElementById('hero');
+    const frogWrapper = heroSection.querySelector('.frog-wrapper');
+    const buttons = heroSection.querySelectorAll('.btn');
+
+    // Список символов для партиклов
+    const particleSymbols = ['{ }', '</>', '< >', '0101', 'if()', '=>'];
+
+    // Функция создания одного партикла
+    const createParticle = (originElement) => {
+        if (!originElement) return;
+
+        // 1. Создаем элемент span
+        const particle = document.createElement('span');
+        particle.className = 'frog-particle';
+        
+        // 2. Выбираем случайный символ
+        const randomSymbol = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+        particle.textContent = randomSymbol;
+
+        // 3. Рассчитываем случайный разлет (направление и дистанцию)
+        // Используем CSS переменные для анимации
+        const angle = Math.random() * Math.PI * 2; // Случайный угол
+        const distance = 200 + Math.random() * 120; // Дистанция разлета (от 80 до 150px)
+        
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        const tr = (Math.random() - 0.5) * 180; // Случайный поворот (от -90 до 90 градусов)
+
+        // Записываем переменные в стайл элемента
+        particle.style.setProperty('--tx', `${tx}px`);
+        particle.style.setProperty('--ty', `${ty}px`);
+        particle.style.setProperty('--tr', `${tr}deg`);
+        
+        // Позиционируем в центре обертки
+        particle.style.top = '50%';
+        particle.style.left = '50%';
+
+        // 4. Добавляем партикл в DOM
+        originElement.appendChild(particle);
+
+        // 5. Автоматически удаляем элемент после завершения анимации (1с),
+        // чтобы не засорять память
+        setTimeout(() => {
+            particle.remove();
+        }, 1000); 
+    };
+
+    // Функция создания "всплеска" партиклов
+    const spawnParticleBurst = (originElement, count) => {
+        for (let i = 0; i < count; i++) {
+            // Создаем партикл с небольшой задержкой, чтобы они не вылетали одновременно
+            setTimeout(() => createParticle(originElement), i * 30);
+        }
+    };
+
+
+    // --- Настройка триггеров ---
+
+    if (frogWrapper) {
+        // ТРИГГЕР 1: Клик мышкой по всей секции Hero
+        heroSection.addEventListener('click', (e) => {
+            // Если мы кликнули по кнопке, всплеск не создаем (у кнопок свой триггер)
+            if (e.target.classList.contains('btn')) return;
+            
+            spawnParticleBurst(frogWrapper, 15); // Большой всплеск (15 партиклов)
+        });
+
+        // ТРИГГЕР 2: Наводка на любую кнопку в секции
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                // Создаем небольшой постоянный эффект, пока мышь над кнопкой,
+                // или один быстрый всплеск. Давай сделаем один всплеск.
+                spawnParticleBurst(frogWrapper, 6); // Маленький всплеск (6 партиклов)
+            });
+        });
     }
 });
 
-const track = document.querySelector('.review-track');
-const slides = document.querySelectorAll('.review-slide');
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
+// Функция для перехода к контактам после квиза (вынесена за DOMContentLoaded, так как может вызываться из inline-onclick)
+function handleQuizSelection() {
+    const modalEl = document.getElementById('frogQuizModal');
+    const modal = bootstrap.Modal.getInstance(modalEl);
 
-let index = 0;
-
-function updateSlider() {
-    track.style.transform = `translateX(-${index * 100}%)`;
-}
-
-if (nextBtn && prevBtn && track) {
-    nextBtn.addEventListener('click', () => {
-        index = (index + 1) % slides.length;
-        updateSlider();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        index = (index - 1 + slides.length) % slides.length;
-        updateSlider();
-    });
+    if (modal) modal.hide();
+    
+    setTimeout(() => {
+        const contactSection = document.querySelector('#contacts');
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+            history.pushState(null, null, '#contacts');
+        }
+    }, 350); 
 }

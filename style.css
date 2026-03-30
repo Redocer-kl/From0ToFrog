@@ -11,6 +11,10 @@
     --accent-tertiary-rgb: 76, 201, 240;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -21,16 +25,14 @@ body {
 body::before {
     content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-image:
         linear-gradient(rgba(var(--accent-primary-rgb), 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(var(--accent-primary-rgb), 0.05) 1px, transparent 1px),
         url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L30 10 L30 30 L50 30 L50 10 L70 10 L70 30 L90 30 M10 70 L30 70 L30 90 L50 90 L50 70 L70 70 L70 90 L90 90 M50 10 L50 30 L30 30 L30 50 L10 50 L10 30 M50 70 L50 90 L70 90 L70 70 L90 70 L90 90' stroke='%235C9E4210' stroke-width='3' fill='none'/%3E%3C/svg%3E");
     background-size: 50px 50px, 50px 50px, auto;
     z-index: -1;
+    pointer-events: none;
 }
 
 .navbar {
@@ -54,6 +56,19 @@ body::before {
     text-shadow: 0 0 10px rgba(var(--accent-primary-rgb), 0.5);
 }
 
+.navbar-toggler {
+    border-color: rgba(208, 223, 164, 0.35);
+    box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(208, 223, 164, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
 .hero-section {
     padding: 90px 0;
     position: relative;
@@ -75,6 +90,110 @@ body::before {
 .hero-title .highlight {
     color: var(--accent-primary);
     text-shadow: 0 0 30px rgba(var(--accent-primary-rgb), 0.6);
+}
+
+/* Основной контейнер-обертка */
+.frog-eyes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Пропускаем клики сквозь контейнер */
+    z-index: 5;
+}
+
+/* Общие стили для глаза (склеры) */
+.eye {
+    border-radius: 50%;
+    position: absolute;
+    background: transparent; /* Склера уже на PNG */
+    overflow: hidden; /* Скрываем зрачок, если он выходит за край */
+    /* pointer-events: auto; /* Если хочешь, чтобы зрачки реагировали на наведение, раскомментируй */
+}
+
+/* Общие стили для зрачка */
+.pupil {
+    background-color: #000; /* Черный зрачок */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s ease-out; 
+}
+
+/* --- Специфические стили для ЛЕВОГО (меньшего) глаза --- */
+.eye-left {
+    /* Настраивай эти значения! */
+    width: 38px;
+    height: 84px;
+    top: 14%; 
+    left: 32%;
+}
+
+.pupil-left {
+    /* Настраивай эти значения! */
+    width: 22px;
+    height: 14px;
+}
+
+
+.eye-right {
+    /* Настраивай эти значения! */
+    width: 64px;
+    height: 120px;
+    top: 10%;
+    left: 53%; 
+}
+
+.pupil-right {
+    width: 40px;
+    height: 22px;
+}
+
+.frog-particle {
+    position: absolute;
+    /* Делаем цвет гораздо ярче (70% непрозрачности) */
+    color: rgba(0, 220, 100, 0.7); 
+    
+    /* Добавляем неоновое свечение в стиле Матрицы */
+    text-shadow: 0 0 8px rgba(0, 220, 100, 0.5);
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.2rem; /* Увеличили размер (было 1.3rem) */
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    
+    /* Самое главное: слой 1 (ниже лягушки, у которой слой 2) */
+    z-index: 1; 
+    
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    animation: spawnParticle 1s ease-out forwards;
+}
+
+/* Саму анимацию @keyframes spawnParticle менять не нужно, оставляй как было! */
+
+/* Анимация разлета партикла */
+@keyframes spawnParticle {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    }
+    15% {
+        opacity: 1; /* Быстрое появление */
+    }
+    100% {
+        opacity: 0; /* Медленное затухание */
+        /* Конечные координаты (будут заданы динамически через JS переменные) */
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--tr));
+    }
+}
+
+.text-main {
+    color: var(--text-main);
 }
 
 .btn-frog-main {
@@ -119,6 +238,8 @@ body::before {
 .coding-frog-visual {
     width: 80%;
     height: auto;
+    position: relative;
+    z-index: 2;
 }
 
 .img-shadow {
@@ -136,137 +257,6 @@ body::before {
     background: rgba(var(--accent-primary-rgb), 0.8);
     filter: blur(5px);
     z-index: -1;
-}
-
-.peeking-frog-corner {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    transform: rotate(-20deg);
-    opacity: 0.3;
-    font-size: 2rem;
-}
-
-.portfolio-slider-wrapper {
-    background: transparent;
-    border: none;
-    padding: 2rem 0;
-    width: 100%;
-}
-
-.portfolio-track-container {
-    width: 100%;
-    border-radius: 24px;
-    overflow: hidden;
-    position: relative;
-    padding: 10px;
-}
-
-.portfolio-track {
-    display: flex;
-    transition: transform 1.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.portfolio-slide {
-    min-width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-}
-
-.portfolio-card {
-    background: var(--bg-card);
-    border: 2px solid rgba(var(--accent-primary-rgb), 0.2);
-    border-radius: 24px;
-    padding: 2.5rem;
-    color: var(--text-main);
-    width: 100%;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.portfolio-card:hover {
-    border-color: var(--accent-primary);
-    box-shadow: 0 15px 50px rgba(var(--accent-primary-rgb), 0.2);
-}
-
-.project-image-wrapper {
-    width: 50%;
-}
-
-.project-img {
-    width: 100%;
-    position: relative;
-}
-
-.project-img img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border: 3px solid rgba(var(--accent-secondary-rgb), 0.3);
-    border-radius: 16px;
-}
-
-.student-frog-art {
-    width: 200px;
-    height: 200px;
-    border-radius: 24px;
-    bottom: -30px;
-    right: -20px;
-    z-index: 5;
-    overflow: visible;
-}
-
-.student-frog-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-    overflow: visible;
-}
-
-.student-full-name {
-    font-weight: 900;
-    color: var(--text-heading);
-}
-
-.course-badge {
-    background: rgba(var(--accent-primary-rgb), 0.1);
-    color: var(--accent-primary);
-    padding: 6px 12px;
-    border-radius: 8px;
-    display: inline-block;
-    font-size: 0.85rem;
-}
-
-.footer-section {
-    background-color: var(--bg-card) !important;
-    border-top: 3px solid var(--accent-primary);
-    padding: 80px 0;
-    position: relative;
-    margin-top: 50px;
-}
-
-.footer-contact-card {
-    background-color: var(--bg-main);
-    border: 2px solid var(--accent-primary);
-    border-radius: 20px;
-    padding: 2.5rem;
-    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.1);
-}
-
-.peeking-frog-footer-new {
-    width: 100px;
-    position: absolute;
-    top: -70px;
-    left: 15%;
-    font-size: 5rem;
-    z-index: 10;
-}
-
-.peeking-frog-footer-new img {
-    width: 300px;
 }
 
 .chat-interface {
@@ -364,6 +354,111 @@ body::before {
     opacity: 1;
 }
 
+.portfolio-slider-wrapper {
+    background: transparent;
+    border: none;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.portfolio-track-container {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    padding: 10px;
+}
+
+.portfolio-track {
+    display: flex;
+    transition: transform 1.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-slide {
+    min-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    height: auto; 
+    align-items: stretch; 
+}
+
+.portfolio-card {
+    background: var(--bg-card);
+    border: 2px solid rgba(var(--accent-primary-rgb), 0.2);
+    border-radius: 24px;
+    padding: 2.5rem;
+    color: var(--text-main);
+    width: 100%;
+    height: 100%; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 15px 50px rgba(var(--accent-primary-rgb), 0.2);
+}
+
+.project-image-wrapper {
+    width: 50%;
+}
+
+.project-img {
+    width: 100%;
+    position: relative;
+}
+
+.project-img img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border: 3px solid rgba(var(--accent-secondary-rgb), 0.3);
+    border-radius: 16px;
+}
+
+.portfolio-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.portfolio-details .btn {
+    margin-top: auto !important;
+    align-self: flex-start; /* Чтобы кнопка не растягивалась на всю ширину карточки */
+}
+
+.student-frog-art {
+    width: 200px;
+    height: 200px;
+    border-radius: 24px;
+    bottom: -30px;
+    right: -20px;
+    z-index: 5;
+    overflow: visible;
+}
+
+.student-frog-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    overflow: visible;
+}
+
+.student-full-name {
+    font-weight: 900;
+    color: var(--text-heading);
+}
+
+.course-badge {
+    background: rgba(var(--accent-primary-rgb), 0.1);
+    color: var(--accent-primary);
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 0.85rem;
+}
+
 .roadmap-container {
     position: relative;
     z-index: 1;
@@ -373,7 +468,7 @@ body::before {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
-    padding: 30px;
+    padding: 20px 25px;
     height: 100%;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
@@ -413,17 +508,11 @@ body::before {
 .course-item {
     display: flex;
     align-items: flex-start;
-    gap: 0;
-    margin-bottom: 15px;
-    font-size: 0.95rem;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
     line-height: 1.4;
     transition: all 0.3s ease;
-}
-
-.course-item i {
-    font-size: 1.2rem;
-    flex-shrink: 0;
-    margin-top: 2px;
 }
 
 .course-item span strong {
@@ -435,30 +524,20 @@ body::before {
     color: var(--text-heading);
 }
 
-.btn-outline-info {
-    color: #4cc9f0;
-    border: 2px solid #4cc9f0;
-    transition: all 0.3s;
-}
-
-.btn-outline-info:hover {
-    background: #4cc9f0;
-    color: var(--bg-main);
-    box-shadow: 0 0 20px rgba(76, 201, 240, 0.4);
-}
-
 .roadmap-header {
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    padding-top: 50px;
+    padding-top: 30px;
+    margin-top: 5px;
 }
 
 .roadmap-img {
-    width: 80%;
+    width: auto;
+    max-height: 200px;
     object-fit: contain;
+    margin-bottom: 15px;
 }
 
 .roadmap-title-overlay {
@@ -527,14 +606,12 @@ body::before {
 }
 
 .pricing-card-img {
-    background-color: var();
     display: block;
     width: 100%;
     height: 250px;
     object-fit: cover;
     border-radius: 12px;
-    border: 2px solid;
-    border-color: rgba(var(--accent-primary-rgb), 0.3);
+    border: 2px solid rgba(var(--accent-primary-rgb), 0.3);
 }
 
 .frog-timeline-container {
@@ -574,8 +651,6 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
     margin-bottom: -90px;
     z-index: 5;
     transition: transform 0.3s ease;
@@ -700,11 +775,7 @@ body::before {
 
 .teacher-glow {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: radial-gradient(circle, rgba(var(--accent-primary-rgb), 0.3) 0%, transparent 70%);
     filter: blur(20px);
     z-index: 1;
@@ -724,15 +795,17 @@ body::before {
     font-size: 0.9rem;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-weight: 600;
     color: var(--text-main);
-    transition: background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .stat-badge:hover {
-    background: rgba(var(--accent-primary-rgb), 0.15);
-    border-color: rgba(var(--accent-primary-rgb), 0.4);
+    background: var(--bg-main);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(var(--accent-primary-rgb), 0.15);
 }
 
 .teacher-quote {
@@ -791,9 +864,226 @@ body::before {
     transform: translateY(-2px) scale(1.1);
 }
 
+.review-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.review-track {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+}
+
+/* Новая карточка отзыва в стиле портфолио */
+.review-card {
+    background: var(--bg-card);
+    border: 2px solid rgba(var(--accent-primary-rgb), 0.2);
+    border-radius: 24px;
+    padding: 2rem; /* Отступы внутри карточки */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+.review-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 15px 50px rgba(var(--accent-primary-rgb), 0.2);
+}
+
+
+.review-screenshot-wrapper {
+    position: relative;
+    background: rgba(0, 0, 0, 0.25); 
+    border: 1px dashed rgba(var(--accent-primary-rgb), 0.3); 
+    border-radius: 16px;
+    padding: 10px;
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.review-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.shadow-glow {
+    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.3);
+}
+
+.shadow-glow:hover {
+    box-shadow: 0 0 40px rgba(var(--accent-primary-rgb), 0.6);
+}
+
+.contact-link {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.contact-link:hover {
+    color: var(--accent-primary) !important;
+    transform: translateX(5px);
+}
+
+.contact-item span.highlight {
+    background: rgba(var(--accent-primary-rgb), 0.1);
+    padding: 2px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(var(--accent-primary-rgb), 0.3);
+}
+
+.custom-accordion {
+    --bs-accordion-border-width: 0;
+    --bs-accordion-bg: transparent;
+}
+
+.faq-item {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.faq-item:hover {
+    border-color: rgba(var(--accent-primary-rgb), 0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    transform: translateX(5px);
+}
+
+.faq-button {
+    background-color: transparent !important;
+    color: var(--text-heading) !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 1.5rem;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.faq-button::after {
+    display: none;
+}
+
+.faq-prompt {
+    color: var(--accent-secondary);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 1.2rem;
+    transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.faq-button:not(.collapsed) {
+    color: var(--accent-primary) !important;
+    border-bottom: 1px dashed rgba(var(--accent-primary-rgb), 0.2);
+    background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.faq-button:not(.collapsed) .faq-prompt {
+    color: var(--accent-primary);
+    transform: rotate(90deg);
+}
+
+.faq-body {
+    color: var(--text-main);
+    padding: 1.5rem;
+    line-height: 1.6;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.frog-modal {
+    background-color: var(--bg-card);
+    border: 2px solid rgba(var(--accent-primary-rgb), 0.4);
+    border-radius: 24px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(var(--accent-primary-rgb), 0.1);
+}
+
+.frog-modal .btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 0.5;
+}
+
+.frog-modal .btn-close-white:hover {
+    opacity: 1;
+}
+
+.quiz-btn-answer {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    border-radius: 16px;
+    padding: 15px 20px;
+    font-weight: 600;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.quiz-btn-answer:hover {
+    background: rgba(var(--accent-primary-rgb), 0.1);
+    border-color: var(--accent-primary);
+    color: #fff;
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(var(--accent-primary-rgb), 0.15);
+}
+
+.footer-section {
+    background-color: var(--bg-card) !important;
+    border-top: 3px solid var(--accent-primary);
+    padding: 80px 0;
+    position: relative;
+    margin-top: 50px;
+}
+
+.footer-contact-card {
+    background-color: var(--bg-main);
+    border: 2px solid var(--accent-primary);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.1);
+}
+
+.peeking-frog-footer-new {
+    width: 100px;
+    position: absolute;
+    top: -70px;
+    left: 15%;
+    z-index: 10;
+}
+
+.peeking-frog-footer-new img {
+    width: 300px;
+}
+
 @media (max-width: 992px) {
     .hero-title {
         font-size: 2.8rem;
+    }
+
+    .hero-section {
+        padding: 70px 0 50px;
+        text-align: center;
+    }
+
+    .hero-info-card {
+        max-width: 100%;
+    }
+
+    .coding-frog-container {
+        margin-top: 20px;
+    }
+
+    .coding-frog-visual {
+        width: 100%;
+        max-width: 380px;
+        margin-top: 0;
     }
 
     .portfolio-card {
@@ -802,26 +1092,35 @@ body::before {
     }
 
     .project-image-wrapper {
+        width: 100%;
         max-width: 100%;
-        margin-bottom: 30px;
+        margin-bottom: 24px;
+    }
+
+    .project-img img {
+        width: 100%;
+        height: 320px; /* Убираем auto, ставим жесткую высоту */
+        max-height: none; /* Сбрасываем max-height */
+        object-fit: cover; /* Меняем contain на cover, как на десктопе */
     }
 
     .portfolio-details {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .student-frog-art {
-        width: 150px;
-        height: 150px;
-        bottom: -40px;
-        right: 10px;
+        width: 140px;
+        height: 140px;
+        bottom: -30px;
+        right: 0;
     }
 
     .frog-timeline-container {
         flex-direction: column;
-        gap: 40px;
+        gap: 28px;
         align-items: stretch;
     }
 
@@ -829,42 +1128,74 @@ body::before {
         flex-direction: row;
         align-items: flex-start;
         text-align: left;
-        gap: 20px;
+        position: relative;
+        padding-left: 120px;
+        min-height: 150px;
+        gap: 0;
     }
 
     .timeline-step:not(:last-child)::after {
-        top: 40px;
-        left: 45px;
+        content: '';
+        position: absolute;
+        top: 92px;
+        left: 54px;
         width: 0;
-        height: 100%;
+        height: calc(100% + 28px);
         border-top: none;
         border-left: 3px dashed rgba(var(--accent-primary-rgb), 0.5);
         border-radius: 0;
+        z-index: 0;
+    }
+
+    .frog-art {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 128px;
+        height: 128px;
+        margin-bottom: 0;
+        z-index: 5;
     }
 
     .lilypad {
         position: absolute;
-        top: 60px;
         left: 0;
-        width: 90px;
+        top: 72px;
+        width: 128px;
+        height: 54px;
+        margin-bottom: 0;
+        line-height: 1;
+        font-size: 1rem;
     }
 
     .timeline-step .course-text {
-        margin-left: 20px;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+
+    .rotate-2 {
+        transform: rotate(0deg) !important;
     }
 }
 
 @media (max-width: 768px) {
     .hero-section {
-        text-align: center;
+        padding: 55px 0 40px;
     }
 
-    .hero-info-card {
-        max-width: 100%;
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .coding-frog-container {
+        margin-top: 10px;
     }
 
     .coding-frog-visual {
-        margin-top: 50px;
+        width: 100%;
+        max-width: 320px;
+        margin-top: 0;
     }
 
     .chat-message {
@@ -895,192 +1226,48 @@ body::before {
     .teacher-quote {
         text-align: left;
     }
-}
 
-/* --- Стили для текстовых IT-иконок --- */
-.code-icon {
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 900;
-    font-size: 1.1rem;
-    letter-spacing: -1px;
-}
+    .portfolio-card {
+        padding: 1.25rem;
+    }
 
-/* Привязка текста к твоей переменной вместо text-light */
-.text-main {
-    color: var(--text-main);
-}
+    .project-image-wrapper {
+        margin-bottom: 18px;
+    }
 
-/* Обновленный ховер для бейджей, чтобы они реагировали на наведение */
-.stat-badge {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 16px;
-    border-radius: 12px;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    color: var(--text-main);
-    transition: all 0.3s ease;
-}
+    .project-img img {
+        width: 100%;
+        height: 260px; 
+        max-height: none;
+        object-fit: cover; 
+    }
 
-.stat-badge:hover {
-    background: var(--bg-main);
-    border-color: var(--accent-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(var(--accent-primary-rgb), 0.15);
-}
+    .student-frog-art {
+        width: 120px;
+        height: 120px;
+        bottom: -24px;
+        right: 0;
+    }
 
-/* Контейнер трека для плавного листания */
-.review-track-container {
-    overflow: hidden;
-}
+    .review-card {
+        padding: 1.25rem; /* Уменьшаем паддинги карточки */
+    }
+    
+    .review-screenshot-wrapper {
+        height: 200px; /* Уменьшаем высоту для мобильных экранов */
+    }
 
-.review-track {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-}
-
-/* Стилизация карточки со скриншотом */
-.review-screenshot-wrapper {
-    position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px border-dashed rgba(110, 13, 145, 0.3); /* Твой фиолетовый */
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.review-img {
-    border-radius: 15px;
-    width: 100%;
-    height: 300px;
-    filter: drop-shadow(0 0 10px rgba(27, 215, 0, 0.1)); 
-}
-
-
-/* Адаптив для кнопок на мобилках */
-@media (max-width: 768px) {
-    .prev-btn, .next-btn {
+    .prev-btn,
+    .next-btn {
         background: var(--bg-main) !important;
         opacity: 0.9;
     }
-}
 
-/* Эффект свечения для главной кнопки в футере */
-.shadow-glow {
-    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.3);
-}
-
-.shadow-glow:hover {
-    box-shadow: 0 0 40px rgba(var(--accent-primary-rgb), 0.6);
-}
-
-/* Стили для ссылок в футере, чтобы они не были просто белыми */
-.contact-link {
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.contact-link:hover {
-    color: var(--accent-primary) !important;
-    transform: translateX(5px);
-}
-
-/* Выделение "БЕСПЛАТНО" */
-.contact-item span.highlight {
-    background: rgba(var(--accent-primary-rgb), 0.1);
-    padding: 2px 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(var(--accent-primary-rgb), 0.3);
-}
-
-/* Фикс для мобильных: чтобы наклон не мешал на узких экранах */
-@media (max-width: 992px) {
-    .rotate-2 {
-        transform: rotate(0deg) !important;
-    }
-}
-
-/* --- FAQ (БАЗА ЗНАНИЙ) --- */
-
-/* Сбрасываем стандартные рамки Bootstrap */
-.custom-accordion {
-    --bs-accordion-border-width: 0;
-    --bs-accordion-bg: transparent;
-}
-
-.faq-item {
-    background-color: var(--bg-card);
-    border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
-    border-radius: 16px !important; /* Важно для перекрытия Bootstrap */
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.faq-item:hover {
-    border-color: rgba(var(--accent-primary-rgb), 0.5);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transform: translateX(5px); /* Легкий сдвиг вправо при наведении */
-}
-
-/* Кнопка вопроса */
-.faq-button {
-    background-color: transparent !important; /* Убираем белый фон Bootstrap */
-    color: var(--text-heading) !important;
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 1.5rem;
-    box-shadow: none !important; /* Убираем синюю обводку при клике */
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transition: all 0.3s ease;
-}
-
-/* Скрываем стандартную стрелочку Bootstrap */
-.faq-button::after {
-    display: none;
-}
-
-/* Иконка терминала перед вопросом */
-.faq-prompt {
-    color: var(--accent-secondary);
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 900;
-    font-size: 1.2rem;
-    transition: transform 0.4s ease, color 0.3s ease;
-}
-
-/* Стили для открытого вопроса */
-.faq-button:not(.collapsed) {
-    color: var(--accent-primary) !important;
-    border-bottom: 1px dashed rgba(var(--accent-primary-rgb), 0.2);
-    background: rgba(255, 255, 255, 0.02) !important;
-}
-
-.faq-button:not(.collapsed) .faq-prompt {
-    color: var(--accent-primary);
-    transform: rotate(90deg); /* Поворачиваем prompt при открытии */
-}
-
-/* Текст ответа */
-.faq-body {
-    color: var(--text-main);
-    padding: 1.5rem;
-    line-height: 1.6;
-    background-color: rgba(0, 0, 0, 0.2); /* Делаем фон ответа чуть темнее карточки */
-    font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
     .faq-button {
         font-size: 1rem;
         padding: 1.2rem;
     }
+
     .faq-body {
         padding: 1.2rem;
     }
