@@ -255,14 +255,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 6. Глаза
-    const pupilLeft = document.getElementById('pupil-left') || document.querySelector('.pupil-left');
-    const pupilRight = document.getElementById('pupil-right') || document.querySelector('.pupil-right');
+    const pupilLeft = document.querySelector('.pupil-left');
+    const pupilRight = document.querySelector('.pupil-right');
 
-    const pupils = [pupilLeft, pupilRight];
-
-    // Функция, чтобы избежать дублирования кода
-    const movePupil = (pupil, event) => {
-        if (!pupil) return; // Если зрачок не найден, выходим
+    const movePupil = (pupil, clientX, clientY) => {
+        if (!pupil) return;
 
         const eye = pupil.parentElement;
         if (!eye) return;
@@ -274,40 +271,51 @@ document.addEventListener('DOMContentLoaded', function() {
         const eyeCenterY = rect.top + rect.height / 2;
 
         // Расчет угла
-        const angle = Math.atan2(event.clientY - eyeCenterY, event.clientX - eyeCenterX);
+        const angle = Math.atan2(clientY - eyeCenterY, clientX - eyeCenterX);
 
-        // Расчет ограничения движения:
-        // Используем меньший радиус (ширину или высоту) для ограничения,
-        // но с учетом формы зрачка. Это немного сложнее, но для эллипсов
-        // работает лучше.
-        // Более простое решение: maxRadius = (rect.width / 2) - (pupil.offsetWidth / 2);
         const eyeRadiusX = rect.width / 2;
         const eyeRadiusY = rect.height / 2;
         const pupilRadiusX = pupil.offsetWidth / 2;
         const pupilRadiusY = pupil.offsetHeight / 2;
 
-        // Учитываем форму эллиптического зрачка
         const maxRadiusX = eyeRadiusX - pupilRadiusX;
         const maxRadiusY = eyeRadiusY - pupilRadiusY;
 
-        // Рассчитываем смещение на основе полярных координат
-        const moveRadiusX = maxRadiusX * Math.min(1, Math.hypot(event.clientX - eyeCenterX, event.clientY - eyeCenterY) / Math.hypot(window.innerWidth, window.innerHeight));
-        const moveRadiusY = maxRadiusY * Math.min(1, Math.hypot(event.clientX - eyeCenterX, event.clientY - eyeCenterY) / Math.hypot(window.innerWidth, window.innerHeight));
+        // Ограничиваем движение
+        const distance = Math.hypot(clientX - eyeCenterX, clientY - eyeCenterY);
+        const maxDistance = Math.hypot(window.innerWidth, window.innerHeight);
+        const intensity = Math.min(1, distance / maxDistance * 3); // Умножаем на 3 для большей живости
 
-        // Применяем эллиптическое ограничение
-        const pupilX = Math.cos(angle) * moveRadiusX;
-        const pupilY = Math.sin(angle) * moveRadiusY;
+        const moveX = maxRadiusX * intensity;
+        const moveY = maxRadiusY * intensity;
 
-        // Применяем стили
+        const pupilX = Math.cos(angle) * moveX;
+        const pupilY = Math.sin(angle) * moveY;
+
         pupil.style.transform = `translate(calc(-50% + ${pupilX}px), calc(-50% + ${pupilY}px))`;
     };
 
-    document.addEventListener('mousemove', (e) => {
-        // Двигаем оба зрачка
-        movePupil(pupilLeft, e);
-        movePupil(pupilRight, e);
-    });
+    // Функция для получения координат мыши ИЛИ пальца
+    const handleMovement = (e) => {
+        let clientX, clientY;
 
+        if (e.touches && e.touches.length > 0) {
+            // Если это тач-событие (палец)
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            // Если это мышь
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+
+        movePupil(pupilLeft, clientX, clientY);
+        movePupil(pupilRight, clientX, clientY);
+    };
+
+    // Слушаем и мышь, и свайпы по экрану
+    document.addEventListener('mousemove', handleMovement);
+    document.addEventListener('touchmove', handleMovement, { passive: true });
     // 7. Партиклы
 
     // === НОВЫЙ КОД ДЛЯ ПАРТИКЛОВ ===

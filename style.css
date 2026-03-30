@@ -72,19 +72,27 @@ body::before {
 .hero-section {
     padding: 90px 0;
     position: relative;
+    overflow-x: clip;
+}
+
+.hero-row {
+    min-width: 0;
 }
 
 .hero-info-card {
     max-width: 550px;
     z-index: 10;
+    min-width: 0;
 }
 
 .hero-title {
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    line-height: 1.05;
     color: var(--text-heading);
     text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    margin: 0;
 }
 
 .hero-title .highlight {
@@ -92,64 +100,140 @@ body::before {
     text-shadow: 0 0 30px rgba(var(--accent-primary-rgb), 0.6);
 }
 
-/* Основной контейнер-обертка */
+.hero-text {
+    max-width: 100%;
+    line-height: 1.6;
+}
+
+.hero-actions .btn {
+    min-width: 210px;
+}
+
+.btn-frog-main {
+    background-color: var(--accent-primary);
+    color: var(--bg-main);
+    border: 2px solid var(--accent-primary);
+    border-radius: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-frog-main:hover {
+    background-color: var(--bg-card);
+    color: var(--accent-primary);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 0 40px rgba(var(--accent-primary-rgb), 0.7);
+}
+
+.btn-outline-frog {
+    background-color: transparent;
+    color: var(--accent-primary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-frog:hover {
+    background-color: var(--accent-primary);
+    color: var(--bg-main);
+    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.4);
+    transform: translateY(-2px);
+}
+
+.coding-frog-container {
+    position: relative;
+    z-index: 5;
+    min-width: 0;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+.frog-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 480px;
+}
+
+.coding-frog-visual {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.img-shadow {
+    filter: drop-shadow(0px 0px 15px rgba(168, 255, 133, 0.45));
+}
+
 .frog-eyes-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Пропускаем клики сквозь контейнер */
+    inset: 0;
+    pointer-events: none;
     z-index: 5;
 }
 
-/* Общие стили для глаза (склеры) */
 .eye {
     border-radius: 50%;
     position: absolute;
-    background: transparent; /* Склера уже на PNG */
-    overflow: hidden; /* Скрываем зрачок, если он выходит за край */
-    /* pointer-events: auto; /* Если хочешь, чтобы зрачки реагировали на наведение, раскомментируй */
+    background: transparent;
+    overflow: hidden;
 }
 
-/* Общие стили для зрачка */
 .pupil {
-    background-color: #000; /* Черный зрачок */
+    background-color: #010f01;
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: transform 0.05s ease-out; 
+    transition: transform 0.05s ease-out;
 }
 
-/* --- Специфические стили для ЛЕВОГО (меньшего) глаза --- */
 .eye-left {
-    /* Настраивай эти значения! */
-    width: 38px;
-    height: 84px;
-    top: 14%; 
-    left: 32%;
+    top: 18%;
+    left: 29%;
+    width: 6%;
+    height: 13%;
 }
 
 .pupil-left {
-    /* Настраивай эти значения! */
-    width: 22px;
-    height: 14px;
+    width: 70%;
+    height: 25%;
 }
 
-
 .eye-right {
-    /* Настраивай эти значения! */
-    width: 64px;
-    height: 120px;
-    top: 10%;
-    left: 53%; 
+    top: 17%;
+    left: 53%;
+    width: 13%;
+    height: 18%;
 }
 
 .pupil-right {
-    width: 40px;
-    height: 22px;
+    width: 60%;
+    height: 30%;
+}
+
+.lilypad-glow {
+    position: absolute;
+    left: 50%;
+    bottom: -18px;
+    transform: translateX(-50%);
+    width: min(85%, 360px);
+    height: 90px;
+    border-radius: 50%;
+    background: rgba(var(--accent-primary-rgb), 0.65);
+    filter: blur(12px);
+    z-index: -1;
 }
 
 .frog-particle {
@@ -230,17 +314,7 @@ body::before {
     box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.4);
 }
 
-.coding-frog-container {
-    position: relative;
-    z-index: 5;
-}
 
-.coding-frog-visual {
-    width: 80%;
-    height: auto;
-    position: relative;
-    z-index: 2;
-}
 
 .img-shadow {
     filter: drop-shadow(0px 0px 15px rgba(168, 255, 133, 0.45));
@@ -1180,23 +1254,31 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    .hero-section {
-        padding: 55px 0 40px;
-    }
 
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* Уменьшаем размер для мобилок */
+        overflow-wrap: break-word; /* На крайний случай, чтобы не распирало */
     }
 
-    .coding-frog-container {
-        margin-top: 10px;
+    .hero-text {
+        font-size: 1rem !important;
     }
 
-    .coding-frog-visual {
+    .hero-actions {
+        gap: 12px !important;
+    }
+
+    .hero-actions .btn {
         width: 100%;
+        min-width: 0;
         max-width: 320px;
-        margin-top: 0;
     }
+
+    .frog-wrapper {
+        max-width: 360px;
+    }
+
+
 
     .chat-message {
         max-width: 95%;
