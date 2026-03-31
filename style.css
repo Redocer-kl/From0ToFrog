@@ -527,6 +527,48 @@ body::before {
     color: var(--text-heading);
 }
 
+.mascot-container {
+    /* Небольшая анимация появления (опционально) */
+    animation: floatIn 0.8s ease-out forwards;
+}
+
+.speech-bubble {
+    background-color: var(--bg-card);
+    border: 2px solid var(--accent-primary);
+    border-radius: 24px;
+    max-width: 450px;
+    /* Комбинированная тень: общая темная + легкое зеленое свечение */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--accent-primary-rgb), 0.1);
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.speech-bubble:hover {
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--accent-primary-rgb), 0.2);
+}
+
+/* Хвостик облачка (указывает влево на десктопе) */
+.speech-bubble .bubble-tail {
+    position: absolute;
+    top: 50%;
+    left: -18px; /* Выдвигаем за левый край рамки */
+    transform: translateY(-50%);
+    border-width: 15px 18px 15px 0;
+    border-style: solid;
+    border-color: transparent var(--accent-primary) transparent transparent;
+}
+
+/* Внутренняя часть хвостика (цвета карточки, чтобы скрыть линию рамки) */
+.speech-bubble .bubble-tail::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 3px;
+    border-width: 12px 14px 12px 0;
+    border-style: solid;
+    border-color: transparent var(--bg-card) transparent transparent;
+}
+
 .course-badge {
     background: rgba(var(--accent-primary-rgb), 0.1);
     color: var(--accent-primary);
@@ -1355,5 +1397,45 @@ body::before {
 
     .faq-body {
         padding: 1.2rem;
+    }
+
+    .mascot-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px !important;
+    }
+
+    .mascot-img-wrapper img {
+        /* На мобилках, возможно, лучше не зеркалить лягуху, чтобы она смотрела вниз на текст */
+        transform: scaleX(1) !important; 
+        max-height: 260px !important;
+    }
+
+    /* Перемещаем хвостик облачка наверх */
+    .speech-bubble .bubble-tail {
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-width: 0 15px 18px 15px;
+        border-color: transparent transparent var(--accent-primary) transparent;
+    }
+
+    /* Перемещаем "заглушку" хвостика наверх */
+    .speech-bubble .bubble-tail::after {
+        top: 3px;
+        left: -12px;
+        border-width: 0 12px 15px 12px;
+        border-color: transparent transparent var(--bg-card) transparent;
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
