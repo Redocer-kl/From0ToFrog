@@ -1259,6 +1259,97 @@ body::before {
     50% { transform: translateY(-10px); }
 }
 
+/* Компактная секция результатов */
+#results-compact {
+    position: relative;
+    z-index: 1;
+}
+
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Плотное расположение */
+}
+
+.res-mini-card {
+    display: flex;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid rgba(var(--accent-primary-rgb), 0.15);
+    border-radius: 18px;
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+}
+
+.res-mini-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateX(8px);
+    background: rgba(var(--accent-primary-rgb), 0.05);
+}
+
+.res-icon {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    filter: drop-shadow(0 0 5px rgba(var(--accent-primary-rgb), 0.3));
+}
+
+.res-content h6 {
+    color: var(--accent-primary);
+    font-weight: 800;
+    margin-bottom: 2px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.res-content p {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    color: var(--text-main);
+}
+
+/* Анимация и размеры лягухи */
+.res-frog-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.floating-frog-mini {
+    max-height: 280px; /* Ограничил высоту для компактности */
+    animation: floatFrog 3s ease-in-out infinite;
+}
+
+.lilypad-glow-mini {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 40px;
+    background: rgba(var(--accent-primary-rgb), 0.4);
+    filter: blur(15px);
+    z-index: -1;
+}
+
+@keyframes floatFrog {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Адаптив под мобилки */
+@media (max-width: 768px) {
+    .res-mini-card {
+        padding: 10px 15px;
+    }
+    .floating-frog-mini {
+        max-height: 200px;
+        margin-top: 20px;
+    }
+    .res-mini-card:hover {
+        transform: scale(1.02);
+    }
+}
+
 @media (max-width: 992px) {
     .hero-title {
         font-size: 2.8rem;
