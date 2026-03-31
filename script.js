@@ -137,25 +137,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 { text: "Создавать целые миры и писать для них сценарии", points: { junior: 0, middle: 2, senior: 0 } },
                 { text: "Быстро и весело собирать проекты как из Лего", points: { junior: 2, middle: 0, senior: 0 } }
             ]
+        },
+        {
+            question: "Представь, что в твоей программе или игре случился баг (ошибка). Твои действия?",
+            answers: [
+                { text: "Попробую изменить правила игры и скажу, что это не баг, а фича!", points: { junior: 0, middle: 2, senior: 0 } },
+                { text: "Буду копаться в коде и искать запятую, пока всё не заработает", points: { junior: 0, middle: 0, senior: 2 } },
+                { text: "Позову кого-нибудь на помощь или попробую переделать заново", points: { junior: 2, middle: 0, senior: 0 } },
+                { text: "Спрошу у Гугла или нейросети, они точно знают решение", points: { junior: 0, middle: 1, senior: 1 } }
+            ]
+        },
+        {
+            question: "Если бы ты мог заглянуть внутрь компьютера, что бы тебя больше всего заинтересовало?",
+            answers: [
+                { text: "Как картинки и звуки превращаются в весёлую игру", points: { junior: 2, middle: 0, senior: 0 } },
+                { text: "Как работают 3D-модели, физика и гравитация объектов", points: { junior: 0, middle: 2, senior: 0 } },
+                { text: "Как миллионы строчек кода и данных летают по серверам", points: { junior: 0, middle: 0, senior: 2 } }
+            ]
+        },
+        {
+            question: "🐸 Минутка фантазии: ты строишь цифровое болото для лягушек. Какую фичу добавишь первой?",
+            answers: [
+                { text: "Яркие скины для лягушек и забавную музыку на фоне", points: { junior: 2, middle: 0, senior: 0 } },
+                { text: "Редактор уровней, чтобы игроки сами строили препятствия", points: { junior: 0, middle: 2, senior: 0 } },
+                { text: "Базу данных всех головастиков и автовыдачу мух", points: { junior: 0, middle: 0, senior: 2 } },
+                { text: "Мультиплеер, чтобы прыгать по кувшинкам вместе с друзьями", points: { junior: 1, middle: 1, senior: 0 } }
+            ]
         }
     ];
 
     const resultsData = {
         junior: {
-            title: "Ты — JUNIOR FROG! 🐸",
-            text: "Твой путь только начинается! Тебе идеально подойдет курс по Компьютерной грамотности и создание первых игр на Scratch. Будет весело и легко!",
+            title: "Ты — FROG SCOUT! 🐸🎒",
+            text: "Твой путь только начинается, юный первооткрыватель! Тебе идеально подойдет курс по Компьютерной грамотности и создание первых игр на Scratch. Будет весело, легко и очень увлекательно!",
             img: "static/Junior.png",
             colorClass: "color-junior"
         },
         middle: {
-            title: "Ты — MIDDLE FROG! 🐸🎮",
-            text: "Ты рожден для геймдева! Твой выбор — создание миров в Roblox и серьезная разработка на Unity. Пора делать свои хиты!",
+            title: "Ты — GAME MASTER! 🐸🎮",
+            text: "Ты рожден для геймдева и создания собственных вселенных! Твой выбор — миры в Roblox и серьезная разработка на Unity. Пора переходить от игр к их созданию и выпускать свои хиты!",
             img: "static/Middle.png",
             colorClass: "color-middle"
         },
         senior: {
-            title: "Ты — SENIOR FROG! 🐸💻",
-            text: "Ты мыслишь как взрослый профи. Тебя ждут большие проекты, создание сайтов, Python и реальная магия бэкенда. IT-компании уже ждут!",
+            title: "Ты — CODE ARCHITECT! 🐸🏗️",
+            text: "Ты мыслишь масштабно, как настоящий проектировщик систем. Тебя ждут серьезные проекты, создание сайтов с нуля, Python и реальная магия бэкенда. Время строить сложные цифровые миры!",
             img: "static/Senior.png",
             colorClass: "color-senior"
         }
@@ -241,6 +267,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const quizModalEl = document.getElementById('frogQuizModal');
     if (quizModalEl) {
         quizModalEl.addEventListener('show.bs.modal', startQuiz);
+    }
+
+    const retryBtn = document.getElementById('quiz-retry-btn');
+    if (retryBtn) {
+        retryBtn.addEventListener('click', startQuiz);
     }
 
     // ==========================================

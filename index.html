@@ -329,17 +329,15 @@
         <h2 class="text-center hero-title mb-5">Путь от <span class="highlight">головастика</span> до <span
                 class="highlight">PRO-фрога</span></h2>
 
-        
-
         <div class="row g-4 roadmap-container position-relative">
             <div class="col-lg-4">
                 <div class="roadmap-card junior" data-aos="fade-up">
-                    <div class="roadmap-badge color-junior-bg">Level: Beginner</div>
+                    <div class="roadmap-badge color-junior-bg">Level: Scout</div>
 
                     <div class="roadmap-header">
-                        <img src="static/Junior.png" class="img-shadow roadmap-img" alt="Junior Frog">
+                        <img src="static/Junior.png" class="img-shadow roadmap-img" alt="Frog Scout">
                         <div class="roadmap-title-overlay">
-                            <h3 class="fw-bold color-junior mb-0">JUNIOR FROG</h3>
+                            <h3 class="fw-bold color-junior mb-0">FROG SCOUT</h3>
                             <p class="age-label mb-0">7–10 лет</p>
                         </div>
                     </div>
@@ -362,12 +360,12 @@
 
             <div class="col-lg-4">
                 <div class="roadmap-card middle" data-aos="fade-up" data-aos-delay="100">
-                    <div class="roadmap-badge color-middle-bg">Level: Middle</div>
+                    <div class="roadmap-badge color-middle-bg">Level: Creator</div>
 
                     <div class="roadmap-header">
-                        <img src="static/Middle.png" class="img-shadow roadmap-img" alt="Middle Frog">
+                        <img src="static/Middle.png" class="img-shadow roadmap-img" alt="Game Master">
                         <div class="roadmap-title-overlay">
-                            <h3 class="fw-bold color-middle mb-0">MIDDLE FROG</h3>
+                            <h3 class="fw-bold color-middle mb-0">GAME MASTER</h3>
                             <p class="age-label mb-0">11–14 лет</p>
                         </div>
                     </div>
@@ -394,12 +392,12 @@
 
             <div class="col-lg-4">
                 <div class="roadmap-card senior" data-aos="fade-up" data-aos-delay="200">
-                    <div class="roadmap-badge color-senior-bg">Level: Senior</div>
+                    <div class="roadmap-badge color-senior-bg">Level: Architect</div>
 
                     <div class="roadmap-header">
-                        <img src="static/Senior.png" class="img-shadow roadmap-img" alt="Senior Frog">
+                        <img src="static/Senior.png" class="img-shadow roadmap-img" alt="Code Architect">
                         <div class="roadmap-title-overlay">
-                            <h3 class="fw-bold color-senior mb-0">SENIOR FROG</h3>
+                            <h3 class="fw-bold color-senior mb-0">CODE ARCHITECT</h3>
                             <p class="age-label mb-0">15+ лет и взрослые</p>
                         </div>
                     </div>
@@ -426,7 +424,8 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-center align-items-center mt-5 position-relative flex-wrap mascot-container gap-4">
+        <div
+            class="d-flex justify-content-center align-items-center mt-5 position-relative flex-wrap mascot-container gap-4">
 
             <div class="mascot-img-wrapper position-relative" style="z-index: 2;">
                 <img src="static/Normal.png" alt="Frog Mascot" class="img-fluid img-shadow"
@@ -481,11 +480,14 @@
                             style="max-height: 200px;">
                         <h3 id="result-title" class="fw-bold mb-2 text-white"></h3>
                         <p id="result-text" class="text-main mb-4"></p>
+
                         <button type="button" class="btn btn-frog-main w-100" onclick="handleQuizSelection()">
                             Записаться на курс
                         </button>
-                        <button class="btn btn-link text-muted mt-2 text-decoration-none" onclick="startQuiz()">Пройти
-                            еще раз</button>
+
+                        <button id="quiz-retry-btn" class="btn btn-outline-frog w-100 mt-2">
+                            Пройти еще раз
+                        </button>
                     </div>
 
                 </div>
