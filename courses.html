@@ -1,0 +1,1533 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FromZeroToFrog - Школа программирования в Ереване</title>
+    <meta name="description"
+        content="Школа программирования FromZeroToFrog в Ереване и онлайн. Учим детей, подростков и взрослых создавать игры (Roblox, Unity), сайты и ботов на Python с нуля. Запишись на бесплатный пробный урок!">
+    <meta name="keywords"
+        content="школа программирования, курсы программирования, Ереван, онлайн, для детей, для подростков, Python, Unity, Roblox, Scratch, IT с нуля">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://frog0tofrog.ru/">
+    <meta property="og:title" content="Прыгни в IT с FromZeroToFrog 🐸">
+    <meta property="og:description"
+        content="Современная школа программирования в Ереване и онлайн. Практика с первого занятия: от Scratch и Roblox до Python и Fullstack.">
+    <meta property="og:image" content="https://frog0tofrog.ru/static/Normal.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Прыгни в IT с FromZeroToFrog 🐸">
+    <meta name="twitter:description"
+        content="Современная школа программирования в Ереване и онлайн. Практика с первого занятия: от Scratch и Roblox до Python и Fullstack.">
+    <meta name="twitter:image" content="https://frog0tofrog.ru/static/Normal.png">
+    <link rel="icon" href="static/Normal.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg p-3">
+        <div class="container border border-3 px-4 py-2 shadow-sm" style="border-color: #1b5e20 !important;">
+            <a class="navbar-brand fw-bold text-success" href="#hero">
+                <img class="img-shadow" src="static/Normal_right.png" width="40px" alt="">
+                FromZeroToFrog
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold">
+                    <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tracks">Треки</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#courses">Курсы</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="container mt-5 mb-5 pb-5" id="tracks">
+        <div class="text-center mb-5">
+            <h1 class="hero-title mb-3">Образовательные <span class="highlight">треки</span></h1>
+            <p class="text-main opacity-75 fs-5">
+                Понятные маршруты обучения: от первых шагов за компьютером до создания игр, сайтов и
+                backend-проектов.
+            </p>
+        </div>
+
+        <div class="tracks-container d-flex flex-column gap-3">
+
+            <div class="track-row d-flex flex-column flex-lg-row align-items-lg-center p-4">
+                <div class="track-info me-lg-4 mb-3 mb-lg-0">
+                    <h5 class="text-heading fw-bold mb-1">Frog Scout</h5>
+                    <p class="small text-main opacity-50 mb-2">Для самых маленьких — мягкий старт в IT</p>
+                    <span class="badge badge-track">7–10 лет</span>
+                </div>
+                <div class="track-steps d-flex flex-wrap align-items-center flex-grow-1">
+                    <a href="#course-comp-gram" class="step-card">
+                        <span class="step-title">Комп грамотность</span>
+                        <span class="step-duration">12 уроков</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-scratch" class="step-card">
+                        <span class="step-title">Scratch</span>
+                        <span class="step-duration">24 урока</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-roblox" class="step-card">
+                        <span class="step-title">Roblox Studio & Lua</span>
+                        <span class="step-duration">48 уроков</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="track-row d-flex flex-column flex-lg-row align-items-lg-center p-4">
+                <div class="track-info me-lg-4 mb-3 mb-lg-0">
+                    <h5 class="text-heading fw-bold mb-1">Game Master</h5>
+                    <p class="small text-main opacity-50 mb-2">От блоков к коду и полноценным играм</p>
+                    <span class="badge badge-track">11–14 лет</span>
+                </div>
+                <div class="track-steps d-flex flex-wrap align-items-center flex-grow-1">
+                    <a href="#course-scratch" class="step-card">
+                        <span class="step-title">Scratch</span>
+                        <span class="step-duration">24 урока</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-roblox" class="step-card">
+                        <span class="step-title">Roblox Studio & Lua</span>
+                        <span class="step-duration">48 уроков</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-unity" class="step-card">
+                        <span class="step-title">Unity & C#</span>
+                        <span class="step-duration">42 урока</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="track-row d-flex flex-column flex-lg-row align-items-lg-center p-4">
+                <div class="track-info me-lg-4 mb-3 mb-lg-0">
+                    <h5 class="text-heading fw-bold mb-1">Code Start</h5>
+                    <p class="small text-main opacity-50 mb-2">Первые шаги в программировании</p>
+                    <span class="badge badge-track">11–14 лет</span>
+                </div>
+                <div class="track-steps d-flex flex-wrap align-items-center flex-grow-1">
+                    <a href="#course-comp-gram" class="step-card">
+                        <span class="step-title">Комп грамотность</span>
+                        <span class="step-duration">12 уроков</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-python-base" class="step-card">
+                        <span class="step-title">Python: Основы</span>
+                        <span class="step-duration">32 урока</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-backend" class="step-card">
+                        <span class="step-title">Python Backend</span>
+                        <span class="step-duration">48 уроков</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="track-row d-flex flex-column flex-lg-row align-items-lg-center p-4">
+                <div class="track-info me-lg-4 mb-3 mb-lg-0">
+                    <h5 class="text-heading fw-bold mb-1">IT Career</h5>
+                    <p class="small text-main opacity-50 mb-2">Путь к профессии до сладкого оффера</p>
+                    <span class="badge badge-track">15+ лет и взрослые</span>
+                </div>
+                <div class="track-steps d-flex flex-wrap align-items-center flex-grow-1">
+                    <a href="#course-python-base" class="step-card">
+                        <span class="step-title">Python: Основы</span>
+                        <span class="step-duration">32 урока</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-web" class="step-card">
+                        <span class="step-title">Web-разработка</span>
+                        <span class="step-duration">48 уроков</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-backend" class="step-card">
+                        <span class="step-title">Python Backend</span>
+                        <span class="step-duration">48 уроков</span>
+                    </a>
+                    <div class="step-arrow">→</div>
+                    <a href="#course-fullstack" class="step-card">
+                        <span class="step-title">Fullstack</span>
+                        <span class="step-duration">16 уроков</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="container pt-5 mb-5" id="courses">
+        <div class="text-center mb-5">
+            <h1 class="hero-title mb-3">Программы <span class="highlight">обучения</span></h1>
+            <p class="text-main opacity-75 fs-5">Подробный план развития от основ до выпуска готовых проектов.</p>
+        </div>
+
+        <div id="course-comp-gram" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Junior.png" alt="Computer Literacy" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-junior-bg fs-6 rounded-pill px-3 py-2">Frog Scout</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-person"></i> 7–10 лет
+                        </span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-journal-code"></i> 12 уроков
+                        </span>
+                    </div>
+
+                    <h2 class="fw-bold text-heading mb-3">Компьютерная грамотность: уверенный старт в цифровом мире
+                    </h2>
+
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Курс помогает ребенку познакомиться с компьютером, научиться
+                        безопасно
+                        работать с файлами, печатать, пользоваться интернетом и базовыми программами. Это фундамент
+                        для
+                        дальнейшего обучения программированию.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Научить ребенка уверенно пользоваться компьютером как рабочим инструментом: понимать базовые
+                        элементы интерфейса, создавать и сохранять файлы, соблюдать цифровую безопасность и
+                        выполнять
+                        простые учебные задания самостоятельно.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2">Понять, из чего состоит компьютер и как он работает</li>
+                        <li class="mb-2">Научиться пользоваться мышкой, клавиатурой и окнами программ</li>
+                        <li class="mb-2">Освоить создание, сохранение и поиск файлов и папок</li>
+                        <li class="mb-2">Развить навык слепой или полу-сляпой печати</li>
+                        <li class="mb-2">Изучить основы интернет-безопасности и цифровой гигиены</li>
+                        <li class="mb-2">Сделать первые работы в простых программах</li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">
+                        Записаться на курс
+                    </a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="computerLiteracyPlan">
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#cl-mod1">
+                                    <span class="faq-prompt color-junior">>_</span> Модуль 1: Знакомство с
+                                    компьютером
+                                    (Уроки 1-4)
+                                </button>
+                            </h2>
+                            <div id="cl-mod1" class="accordion-collapse collapse"
+                                data-bs-parent="#computerLiteracyPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Что такое компьютер, основные части системы, правила посадки за рабочим местом,
+                                    как
+                                    включать
+                                    и выключать устройство, как пользоваться мышкой, тачпадом и клавиатурой.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#cl-mod2">
+                                    <span class="faq-prompt color-junior">>_</span> Модуль 2: Файлы, папки и печать
+                                    (Уроки 5-8)
+                                </button>
+                            </h2>
+                            <div id="cl-mod2" class="accordion-collapse collapse"
+                                data-bs-parent="#computerLiteracyPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Создание и переименование папок, работа с файлами, сохранение результатов, поиск
+                                    документов,
+                                    основы слепой печати, тренировочные упражнения на скорость и точность набора
+                                    текста.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#cl-mod3">
+                                    <span class="faq-prompt color-junior">>_</span> Модуль 3: Интернет и
+                                    безопасность
+                                    (Уроки 9-12)
+                                </button>
+                            </h2>
+                            <div id="cl-mod3" class="accordion-collapse collapse"
+                                data-bs-parent="#computerLiteracyPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Поиск информации в интернете, понятие браузера, вкладок и ссылок, правила
+                                    безопасного поведения
+                                    онлайн, защита личных данных, распознавание подозрительных сайтов и сообщений.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#cl-mod4">
+                                    <span class="faq-prompt color-junior">>_</span> Итоговый мини-проект
+                                </button>
+                            </h2>
+                            <div id="cl-mod4" class="accordion-collapse collapse"
+                                data-bs-parent="#computerLiteracyPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    В конце курса ученик выполняет практическую работу: оформляет простую текстовую
+                                    страницу,
+                                    сохраняет её в нужную папку, вставляет изображение и показывает, что умеет
+                                    уверенно
+                                    работать
+                                    с компьютером.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="course-scratch" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Junior.png" alt="Scratch Developer" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-junior-bg fs-6 rounded-pill px-3 py-2">Frog Scout</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-person"></i> 7–10 лет
+                        </span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-journal-code"></i> 24 урока
+                        </span>
+                    </div>
+
+                    <h2 class="fw-bold text-heading mb-3">Scratch: игры, анимации и первые проекты с логикой</h2>
+
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Расширенный курс по Scratch, где дети не только знакомятся с
+                        блоками,
+                        но и учатся продумывать механику, создавать полноценные игры, анимации и интерактивные
+                        истории.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Сформировать у ребенка уверенное понимание алгоритмов, событий, условий, циклов и переменных
+                        через создание нескольких законченных проектов в Scratch. Курс развивает логику,
+                        креативность
+                        и умение доводить идею до результата.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2">Познакомиться с интерфейсом Scratch и принципом блокового программирования
+                        </li>
+                        <li class="mb-2">Освоить движение, события, условия и циклы</li>
+                        <li class="mb-2">Научиться создавать игры с очками, уровнями и победой</li>
+                        <li class="mb-2">Разработать анимации и интерактивные истории</li>
+                        <li class="mb-2">Поработать со звуками, фонами и сменой сцен</li>
+                        <li class="mb-2">Собрать несколько самостоятельных проектов в портфолио</li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">
+                        Записаться на курс
+                    </a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="scratchPlan">
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#scr-mod1">
+                                    <span class="faq-prompt color-junior">>_</span> Модуль 1: Знакомство со Scratch
+                                    (Уроки 1-6)
+                                </button>
+                            </h2>
+                            <div id="scr-mod1" class="accordion-collapse collapse" data-bs-parent="#scratchPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Интерфейс Scratch, сцена, спрайты, костюмы и блоки. Первые команды движения,
+                                    запуск
+                                    по
+                                    флажку, изменение фонов и создание простых анимаций.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#scr-mod2">
+                                    <span class="faq-prompt color-junior">>_</span> Модуль 2: Управление и события
+                                    (Уроки 7-12)
+                                </button>
+                            </h2>
+                            <div id="scr-mod2" class="accordion-collapse collapse" data-bs-parent="#scratchPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    События, управление клавишами, сообщения между объектами, простые условия и
+                                    повторения.
+                                    Создание мини-игр с управлением персонажем и взаимодействием с объектами.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#scr-mod3">
+                                    <span class="faq-prompt color-junior">>_</span> Модуль 3: Игровая логика и очки
+                                    (Уроки 13-18)
+                                </button>
+                            </h2>
+                            <div id="scr-mod3" class="accordion-collapse collapse" data-bs-parent="#scratchPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Создание системы очков, таймеров, жизней и уровней. Проработка правил победы и
+                                    проигрыша,
+                                    добавление звуков, эффектов и усложнение механики игры.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#scr-mod4">
+                                    <span class="faq-prompt color-junior">>_</span> Модуль 4: Итоговые проекты
+                                    (Уроки
+                                    19-24)
+                                </button>
+                            </h2>
+                            <div id="scr-mod4" class="accordion-collapse collapse" data-bs-parent="#scratchPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Разработка собственных проектов: платформер, аркада или интерактивная история.
+                                    Ученик проходит полный цикл от идеи и прототипа до готовой презентации проекта.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="course-python-base" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Middle.png" alt="Python Developer" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-middle-bg fs-6 rounded-pill px-3 py-2">Game Master</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-person"></i> 11–14 лет
+                        </span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-journal-code"></i> 32 урока
+                        </span>
+                    </div>
+
+                    <h2 class="fw-bold text-heading mb-3">Python: база программирования и первые игры на Pygame</h2>
+
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Курс выстраивает фундамент Python с нуля: синтаксис, типы данных,
+                        условия,
+                        циклы, функции, списки и работу с файлами. После этого ученики закрепляют знания на
+                        практике,
+                        создавая простые игры и интерактивные проекты в Pygame.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Дать уверенную базу программирования на Python и научить применять ее в реальных задачах.
+                        Большая часть курса посвящена фундаменту, а в финале ученики переходят к Pygame, где
+                        закрепляют знания через создание простых игр.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2">Освоить синтаксис Python и принципы написания чистого кода</li>
+                        <li class="mb-2">Понять переменные, типы данных, условия и циклы</li>
+                        <li class="mb-2">Научиться работать со списками, словарями и функциями</li>
+                        <li class="mb-2">Освоить модули, файлы и основы отладки</li>
+                        <li class="mb-2">Познакомиться с библиотекой Pygame и игровой логикой</li>
+                        <li class="mb-2">Сделать несколько законченных мини-проектов</li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">
+                        Записаться на курс
+                    </a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="pythonPlan">
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#py-mod1">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 1: Основы Python (Уроки
+                                    1-8)
+                                </button>
+                            </h2>
+                            <div id="py-mod1" class="accordion-collapse collapse" data-bs-parent="#pythonPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Знакомство с Python, установка среды разработки, print(), переменные, типы
+                                    данных,
+                                    ввод данных, арифметика, простые задачи на вычисления и первые мини-скрипты.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#py-mod2">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 2: Условия и циклы (Уроки
+                                    9-16)
+                                </button>
+                            </h2>
+                            <div id="py-mod2" class="accordion-collapse collapse" data-bs-parent="#pythonPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Условные операторы, логические выражения, циклы for и while, вложенные
+                                    конструкции,
+                                    работа с диапазонами, повторяющиеся действия и задачи на алгоритмическое
+                                    мышление.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#py-mod3">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 3: Структуры данных и
+                                    функции
+                                    (Уроки 17-24)
+                                </button>
+                            </h2>
+                            <div id="py-mod3" class="accordion-collapse collapse" data-bs-parent="#pythonPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Списки, кортежи, словари, обработка строк, функции, параметры и возвращаемые
+                                    значения.
+                                    Также ученики учатся разбивать программу на части и писать более понятный код.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#py-mod4">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 4: Pygame и итоговые
+                                    проекты
+                                    (Уроки 25-32)
+                                </button>
+                            </h2>
+                            <div id="py-mod4" class="accordion-collapse collapse" data-bs-parent="#pythonPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Знакомство с Pygame, окно игры, отрисовка объектов, события клавиатуры и мыши,
+                                    движение персонажа, столкновения, очки, таймеры и создание простой законченной
+                                    игры.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="course-roblox" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Normal.png" alt="Roblox Developer" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-middle-bg fs-6 rounded-pill px-3 py-2">Game Master</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2"><i
+                                class="bi bi-person"></i> 11–14 лет</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2"><i
+                                class="bi bi-journal-code"></i> 48 уроков</span>
+                    </div>
+                    <h2 class="fw-bold text-heading mb-3">Roblox Studio & Lua: Создание своих миров</h2>
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Полное погружение в геймдев на базе платформы Roblox. Ученики
+                        создают
+                        собственные режимы, изучают 3D-моделирование и пишут скрипты на языке Lua.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Освоение основ программирования и алгоритмического мышления через создание 4-5 полноценных
+                        игр,
+                        готовых к публикации и монетизации.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2"> Освоить профессиональный
+                            интерфейс Studio</li>
+                        <li class="mb-2"> Изучить переменные, циклы и
+                            функции Lua</li>
+                        <li class="mb-2"> Работа с физикой и
+                            Server/Client событиями</li>
+                        <li class="me-2"> Проектирование игровых интерфейсов (UI)
+                        </li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">Записаться на
+                        курс</a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="robloxPlan">
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#rbx-mod1">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 1: Основы и первая Obby
+                                    (Уроки 1-8)
+                                </button>
+                            </h2>
+                            <div id="rbx-mod1" class="accordion-collapse collapse" data-bs-parent="#robloxPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Навигация, работа с Parts и свойствами. Создание ловушек (Kill Bricks) и простых
+                                    скриптов на касание.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#rbx-mod2">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 2: Программирование на
+                                    Lua
+                                    (Уроки 9-20)
+                                </button>
+                            </h2>
+                            <div id="rbx-mod2" class="accordion-collapse collapse" data-bs-parent="#robloxPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Типы данных, математика в коде, условные операторы и функции. Создание систем
+                                    очков
+                                    и телепортов.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#rbx-mod3">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 3: Tycoon и DataStores
+                                    (Уроки
+                                    21-36)
+                            </h2>
+                            </h2>
+                            <div id="rbx-mod3" class="accordion-collapse collapse" data-bs-parent="#robloxPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Сложные циклы, сохранение данных игрока и разработка экономики внутри игры.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#rbx-mod4">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 4: Выпускной проект
+                                    (Уроки
+                                    37-48)
+                                </button>
+                            </h2>
+                            <div id="rbx-mod4" class="accordion-collapse collapse show" data-bs-parent="#robloxPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Полный цикл разработки игры от идеи до публикации на платформе.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="course-unity" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Middle.png" alt="Unity Developer" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-middle-bg fs-6 rounded-pill px-3 py-2">Game Master</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-person"></i> 11–14 лет
+                        </span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-journal-code"></i> 42 урока
+                        </span>
+                    </div>
+
+                    <h2 class="fw-bold text-heading mb-3">Unity: 2D, 2.5D и первые шаги в 3D-разработке</h2>
+
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Курс строится как постепенный переход от простых 2D-игр к более
+                        сложным
+                        2.5D и 3D-проектам. Сначала ученики осваивают базовую логику Unity, затем делают платформер
+                        и
+                        аркаду, после чего переходят к 3D от первого и третьего лица, знакомятся с Blender и
+                        собирают
+                        финальный проект.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Дать ученику понятный маршрут в геймдев: от интерфейса Unity и базовой игровой логики до
+                        работы
+                        с 3D-сценами, персонажами и простыми моделями. Курс помогает понять, как устроены
+                        современные
+                        игры, и собрать несколько проектов разного типа.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2">Освоить интерфейс Unity, сцены, объекты и компоненты</li>
+                        <li class="mb-2">Научиться создавать 2D-игры с управлением, коллизиями и интерфейсом</li>
+                        <li class="mb-2">Понять основы 2.5D-геймплея и работы с камерой</li>
+                        <li class="mb-2">Сделать первые шаги в 3D: движение, поворот, физика и взаимодействие</li>
+                        <li class="mb-2">Познакомиться с Blender и базовым созданием простых моделей</li>
+                        <li class="mb-2">Собрать собственный финальный проект и подготовить его к показу</li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">
+                        Записаться на курс
+                    </a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="unityPlan">
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#unity-mod1">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 1: Unity и первые 2D-шаги
+                                    (Уроки 1-7)
+                                </button>
+                            </h2>
+                            <div id="unity-mod1" class="accordion-collapse collapse" data-bs-parent="#unityPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Знакомство с интерфейсом Unity, сценами, GameObject и компонентами. Работа с
+                                    2D-спрайтами,
+                                    простое движение, коллизии, сбор монет и создание первой мини-игры.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#unity-mod2">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 2: 2D-платформер и
+                                    игровая
+                                    логика (Уроки 8-14)
+                                </button>
+                            </h2>
+                            <div id="unity-mod2" class="accordion-collapse collapse" data-bs-parent="#unityPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Создание 2D-платформера: прыжки, платформы, враги, здоровье, финиш, рестарт
+                                    уровня.
+                                    Добавление UI, очков, экранов победы и поражения.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#unity-mod3">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 3: Переход в 2.5D (Уроки
+                                    15-21)
+                                </button>
+                            </h2>
+                            <div id="unity-mod3" class="accordion-collapse collapse" data-bs-parent="#unityPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Работа с камерой, глубиной сцены и ограничением движения в 2.5D. Создание
+                                    аркадного
+                                    проекта с ощущением объема, но с простой и понятной механикой управления.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#unity-mod4">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 4: Легкий 3D от первого
+                                    лица
+                                    (Уроки 22-28)
+                                </button>
+                            </h2>
+                            <div id="unity-mod4" class="accordion-collapse collapse" data-bs-parent="#unityPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Основы 3D-сцены, перемещение от первого лица, камера, физика, столкновения и
+                                    простые
+                                    взаимодействия с объектами. Создание небольшого исследовательского уровня.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#unity-mod5">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 5: Blender и 3D от
+                                    третьего
+                                    лица (Уроки 29-35)
+                                </button>
+                            </h2>
+                            <div id="unity-mod5" class="accordion-collapse collapse" data-bs-parent="#unityPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Базовое знакомство с Blender: простые формы, моделирование и подготовка объектов
+                                    для
+                                    Unity.
+                                    Настройка персонажа от третьего лица, камера, анимации и перемещение по
+                                    3D-локации.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#unity-mod6">
+                                    <span class="faq-prompt color-middle">>_</span> Модуль 6: Финальный проект
+                                    (Уроки
+                                    36-42)
+                                </button>
+                            </h2>
+                            <div id="unity-mod6" class="accordion-collapse collapse" data-bs-parent="#unityPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Сборка собственного проекта на выбор: 2D, 2.5D или 3D-игра. Проработка уровней,
+                                    интерфейса, механик и финальная презентация готовой работы.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="course-backend" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Senior.png" alt="Python Backend Developer" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-senior-bg fs-6 rounded-pill px-3 py-2">Code Architect</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-person"></i> 15+ лет и взрослые
+                        </span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-journal-code"></i> 48 уроков
+                        </span>
+                    </div>
+
+                    <h2 class="fw-bold text-heading mb-3">Python Backend: Flask, FastAPI, Django</h2>
+
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Курс выстраивает путь backend-разработчика с нуля: сначала ученики
+                        закрепляют основы серверной логики на Flask, затем изучают SQL и базы данных, после чего
+                        переходят
+                        к FastAPI, асинхронности и современному подходу к API. Финальный блок посвящен Django и
+                        созданию
+                        собственного выпускного проекта.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Дать прочную основу backend-разработки на Python: научить создавать серверные приложения,
+                        работать
+                        с базами данных, строить API, понимать структуру современных веб-сервисов и уверенно
+                        проходить
+                        путь
+                        от простого проекта до полноценного выпускного решения.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2">Освоить принципы backend-разработки и устройство клиент-серверной
+                            архитектуры
+                        </li>
+                        <li class="mb-2">Научиться создавать веб-приложения на Flask</li>
+                        <li class="mb-2">Изучить SQL, таблицы, связи и базовые запросы к базе данных</li>
+                        <li class="mb-2">Понять работу API, роутов, схем данных и валидации</li>
+                        <li class="mb-2">Познакомиться с FastAPI и асинхронным кодом</li>
+                        <li class="mb-2">Освоить Django и собрать финальный backend-проект</li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">
+                        Записаться на курс
+                    </a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="pythonBackendPlan">
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#pb-mod1">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 1: Введение в backend и
+                                    Flask
+                                    (Уроки 1-10)
+                                </button>
+                            </h2>
+                            <div id="pb-mod1" class="accordion-collapse collapse" data-bs-parent="#pythonBackendPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Что такое backend, как работает клиент-серверная архитектура, установка
+                                    окружения,
+                                    виртуальные окружения, структура проекта, маршруты, шаблоны, формы и создание
+                                    первого
+                                    веб-приложения на Flask.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#pb-mod2">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 2: SQL и базы данных
+                                    (Уроки
+                                    11-18)
+                                </button>
+                            </h2>
+                            <div id="pb-mod2" class="accordion-collapse collapse" data-bs-parent="#pythonBackendPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Основы SQL, таблицы и связи, SELECT, INSERT, UPDATE, DELETE, фильтрация,
+                                    сортировка,
+                                    JOIN-запросы и подключение базы данных к Python-приложению для хранения и
+                                    обработки
+                                    данных.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#pb-mod3">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 3: API и работа с данными
+                                    (Уроки 19-26)
+                                </button>
+                            </h2>
+                            <div id="pb-mod3" class="accordion-collapse collapse" data-bs-parent="#pythonBackendPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Создание API-роутов, передача JSON, валидация входных данных, обработка ошибок,
+                                    REST-подход, структура серверных ответов и первые практические сервисы для
+                                    работы с
+                                    данными.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#pb-mod4">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 4: FastAPI и
+                                    асинхронность
+                                    (Уроки 27-34)
+                                </button>
+                            </h2>
+                            <div id="pb-mod4" class="accordion-collapse collapse" data-bs-parent="#pythonBackendPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Переход к FastAPI, аннотации типов, автоматическая документация, Pydantic,
+                                    асинхронные
+                                    функции, async/await, фоновые задачи и современный подход к созданию быстрых
+                                    API.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#pb-mod5">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 5: Django и структура
+                                    больших
+                                    проектов (Уроки 35-42)
+                                </button>
+                            </h2>
+                            <div id="pb-mod5" class="accordion-collapse collapse" data-bs-parent="#pythonBackendPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Знакомство с Django, модели, представления, шаблоны, админка, формы,
+                                    авторизация,
+                                    пользовательские страницы и понимание того, как строятся более крупные
+                                    backend-проекты.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#pb-mod6">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 6: Выпускной проект
+                                    (Уроки
+                                    43-48)
+                                </button>
+                            </h2>
+                            <div id="pb-mod6" class="accordion-collapse collapse" data-bs-parent="#pythonBackendPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Сборка собственного проекта: проектирование структуры, реализация API, работа с
+                                    базой данных,
+                                    логика пользователя, тестирование и финальная презентация готового
+                                    backend-сервиса.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="course-web" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Senior.png" alt="Web Developer" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-senior-bg fs-6 rounded-pill px-3 py-2">Code Architect</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-person"></i> 15+ лет и взрослые
+                        </span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-journal-code"></i> 48 уроков
+                        </span>
+                    </div>
+
+                    <h2 class="fw-bold text-heading mb-3">Web: Figma, верстка, адаптация, JavaScript и React</h2>
+
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Курс ведет ученика от дизайна будущего сайта в Figma к полноценной
+                        фронтенд-разработке. Сначала разбираем макеты и структуру страниц, затем осваиваем HTML и
+                        CSS,
+                        flexbox и grid, анимации и адаптивность. После этого переходим к основам JavaScript и
+                        завершаем
+                        курс знакомством с React и выпускным проектом.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Научить ученика создавать современные сайты с нуля: от проработки макета и грамотной
+                        структуры
+                        страницы до адаптивной верстки, интерактивности на JavaScript и первых компонентов на React.
+                        В финале курса собирается полноценный проект, который можно показать в портфолио.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2">Освоить Figma и научиться работать с макетами</li>
+                        <li class="mb-2">Изучить HTML и CSS, семантику и структуру страниц</li>
+                        <li class="mb-2">Понять flexbox и grid для построения современных интерфейсов</li>
+                        <li class="mb-2">Научиться делать адаптивную верстку под разные устройства</li>
+                        <li class="mb-2">Добавлять анимации, эффекты и плавные переходы</li>
+                        <li class="mb-2">Изучить основы JavaScript и познакомиться с React</li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">
+                        Записаться на курс
+                    </a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="webPlan">
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#web-mod1">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 1: Figma и основы дизайна
+                                    (Уроки 1-8)
+                                </button>
+                            </h2>
+                            <div id="web-mod1" class="accordion-collapse collapse" data-bs-parent="#webPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Интерфейс Figma, фреймы, сетки, текст, цвета, компоненты, автолейаут и разбор
+                                    готовых
+                                    макетов. Ученики учатся понимать структуру интерфейса и готовить дизайн к
+                                    верстке.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#web-mod2">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 2: HTML и базовый CSS
+                                    (Уроки
+                                    9-16)
+                                </button>
+                            </h2>
+                            <div id="web-mod2" class="accordion-collapse collapse" data-bs-parent="#webPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Структура HTML-документа, семантические теги, подключение стилей, базовая
+                                    типографика,
+                                    цвета, отступы, блоки и создание первых страниц по макету.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#web-mod3">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 3: Flexbox и Grid (Уроки
+                                    17-24)
+                                </button>
+                            </h2>
+                            <div id="web-mod3" class="accordion-collapse collapse" data-bs-parent="#webPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Построение современных сеток, выравнивание элементов, распределение
+                                    пространства,
+                                    карточки, меню, секции, grid-раскладки и сборка более сложных интерфейсов.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#web-mod4">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 4: Анимации и адаптация
+                                    (Уроки 25-32)
+                                </button>
+                            </h2>
+                            <div id="web-mod4" class="accordion-collapse collapse" data-bs-parent="#webPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Hover-эффекты, transition, transform, keyframes, плавные появления, работа с
+                                    медиа-запросами,
+                                    адаптация под планшеты и телефоны, проверка страниц на разных экранах.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#web-mod5">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 5: Основы JavaScript
+                                    (Уроки
+                                    33-40)
+                                </button>
+                            </h2>
+                            <div id="web-mod5" class="accordion-collapse collapse" data-bs-parent="#webPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Переменные, типы данных, условия, циклы, функции, массивы, события, DOM-элементы
+                                    и
+                                    интерактивность страниц. Ученики добавляют логику на уже сверстанный сайт.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#web-mod6">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 6: React и выпускной
+                                    проект
+                                    (Уроки 41-48)
+                                </button>
+                            </h2>
+                            <div id="web-mod6" class="accordion-collapse collapse" data-bs-parent="#webPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Введение в React, компоненты, props, состояние, список элементов, базовая
+                                    структура
+                                    приложения
+                                    и сборка финального проекта — современного адаптивного сайта с интерактивными
+                                    элементами.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="course-fullstack" class="course-detail-card p-4 p-md-5 mb-5 shadow-lg position-relative"
+            style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.2); border-radius: 30px;">
+
+            <!-- Шапка курса -->
+            <div class="row align-items-center mb-4 pb-4" style="border-bottom: 1px dashed rgba(255, 255, 255, 0.1);">
+                <div class="col-lg-3 col-md-4 text-center mb-4 mb-md-0 position-relative">
+                    <div class="lilypad-glow" style="width: 150px; height: 30px; bottom: 10px;"></div>
+                    <img src="static/Senior.png" alt="Fullstack Developer" class="img-fluid img-shadow"
+                        style="max-height: 180px;">
+                </div>
+
+                <div class="col-lg-9 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge color-senior-bg fs-6 rounded-pill px-3 py-2">Code Architect</span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-person"></i> 15+ лет и взрослые
+                        </span>
+                        <span class="badge bg-dark border border-secondary fs-6 rounded-pill px-3 py-2">
+                            <i class="bi bi-journal-code"></i> 16 уроков
+                        </span>
+                    </div>
+
+                    <h2 class="fw-bold text-heading mb-3">Fullstack: Git, Docker, архитектура и подготовка к работе
+                    </h2>
+
+                    <p class="text-main opacity-75 fs-6 mb-0">
+                        <strong>Вкратце:</strong> Финальный курс, где ученик соединяет frontend и backend в единый
+                        проект,
+                        учится работать с Git и Docker, понимает архитектуру приложений и готовится к первым
+                        собеседованиям
+                        и реальной работе разработчиком.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Контент курса -->
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <h4 class="fw-bold highlight mb-3">Цель курса</h4>
+                    <p class="text-main opacity-75 mb-4">
+                        Сформировать полноценного junior-разработчика: научить соединять frontend и backend,
+                        понимать архитектуру проектов, работать с современными инструментами разработки
+                        и уверенно чувствовать себя на собеседованиях.
+                    </p>
+
+                    <h4 class="fw-bold highlight mb-3">Основные задачи</h4>
+                    <ul class="list-unstyled text-main opacity-75">
+                        <li class="mb-2">Соединить frontend и backend в единое приложение</li>
+                        <li class="mb-2">Освоить Git и работу с репозиториями</li>
+                        <li class="mb-2">Понять основы Docker и контейнеризации</li>
+                        <li class="mb-2">Разобраться в архитектуре проектов и структуре кода</li>
+                        <li class="mb-2">Подготовиться к техническим собеседованиям</li>
+                        <li class="mb-2">Собрать финальный fullstack-проект для портфолио</li>
+                    </ul>
+
+                    <a href="#contacts" class="btn btn-frog-main w-100 mt-4 py-3 rounded-pill shadow-glow">
+                        Записаться на курс
+                    </a>
+                </div>
+
+                <div class="col-lg-7">
+                    <h4 class="fw-bold mb-4" style="color: var(--text-heading);">Учебный план</h4>
+
+                    <div class="accordion custom-accordion" id="fullstackPlan">
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#fs-mod1">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 1: Git и командная работа
+                                    (Уроки 1-4)
+                                </button>
+                            </h2>
+                            <div id="fs-mod1" class="accordion-collapse collapse" data-bs-parent="#fullstackPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Основы Git: commit, branch, merge, pull request. Работа с GitHub, структура
+                                    проекта,
+                                    ведение истории изменений и базовые принципы командной разработки.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#fs-mod2">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 2: Архитектура и
+                                    соединение
+                                    проекта (Уроки 5-8)
+                                </button>
+                            </h2>
+                            <div id="fs-mod2" class="accordion-collapse collapse" data-bs-parent="#fullstackPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Как frontend взаимодействует с backend, API-запросы, структура проекта,
+                                    разделение
+                                    логики, работа с окружением и организация кода в реальных приложениях.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#fs-mod3">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 3: Docker и деплой (Уроки
+                                    9-12)
+                                </button>
+                            </h2>
+                            <div id="fs-mod3" class="accordion-collapse collapse" data-bs-parent="#fullstackPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Что такое контейнеризация, работа с Docker, создание Dockerfile, запуск проекта
+                                    в
+                                    контейнере, настройка окружения и подготовка проекта к развертыванию.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item faq-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button faq-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#fs-mod4">
+                                    <span class="faq-prompt color-senior">>_</span> Модуль 4: Собеседования и
+                                    финальный
+                                    проект (Уроки 13-16)
+                                </button>
+                            </h2>
+                            <div id="fs-mod4" class="accordion-collapse collapse show" data-bs-parent="#fullstackPlan">
+                                <div class="accordion-body faq-body text-main opacity-75">
+                                    Разбор типовых вопросов на собеседованиях, алгоритмическое мышление, объяснение
+                                    своего кода,
+                                    подготовка портфолио и сборка финального fullstack-проекта с презентацией.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacts" class="footer-section container-fluid mt-5">
+        <div class="peeking-frog-footer-new"><img src="static/Peeking.png" alt="Peeking Frog"></div>
+
+        <div class="container footer-contact-card text-center text-lg-start">
+            <div class="row align-items-center">
+
+                <!-- Левая колонка с призывом -->
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="hero-title mb-4"><span class="highlight">Жду</span> тебя на занятиях!</h2>
+
+                    <p class="fs-5 text-main mb-4">
+                        Начнем путь в IT вместе. Запишись на <strong>бесплатное пробное занятие онлайн</strong>,
+                        чтобы создать свой первый проект и познакомиться с форматом обучения.
+                    </p>
+
+                    <div class="d-flex flex-column gap-3 fs-5 fw-bold justify-content-lg-start justify-content-center">
+                        <div class="contact-item text-main">
+                            <i class="bi bi-laptop highlight me-2"></i>
+                            Пробное занятие: <span class="highlight">БЕСПЛАТНО</span>
+                        </div>
+
+                        <a href="https://t.me/from0tofrog" target="_blank"
+                            class="text-decoration-none text-main contact-link">
+                            <i class="bi bi-telegram highlight me-2"></i> @from0tofrog
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Правая колонка с карточкой -->
+                <div class="col-lg-6 position-relative text-center">
+                    <div class="p-4 rounded-4 rotate-2 shadow-lg"
+                        style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.25);">
+                        <h4 class="mb-3 hero-title highlight" style="font-size: 2rem;">Забронировать место</h4>
+
+                        <p class="small text-main mb-4" style="opacity: 0.9;">
+                            Первый онлайн-урок — 0₽. <br> Выбери удобное время в календаре или задай вопрос, если
+                            остались сомнения!
+                        </p>
+
+                        <div class="d-flex flex-column gap-3">
+                            <button type="button" class="btn btn-frog-main btn-lg w-100 py-3 shadow-glow"
+                                data-bs-toggle="modal" data-bs-target="#calendlyModal">
+                                Хочу пробный урок
+                            </button>
+
+                            <a href="https://t.me/from0tofrog" target="_blank"
+                                class="btn btn-outline-frog btn-lg w-100 py-3">
+                                <i class="bi bi-telegram me-2"></i> Задать вопрос
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-5" style="border-color: rgba(var(--accent-primary-rgb), 0.25);">
+
+            <div class="row align-items-center text-main pb-4" style="opacity: 0.65; font-size: 0.85rem;">
+
+                <!-- Копирайт -->
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0 fw-bold">© 2026 FromZeroToFrog.</p>
+                    <p class="mb-0">Сделано с любовью к коду и лягухам.</p>
+                </div>
+
+                <!-- Реквизиты -->
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <p class="mb-0"><strong>Реквизиты:</strong></p>
+                    <p class="mb-0">Плательщик НПД: Клюкин Даниил Михайлович</p>
+                    <p class="mb-0">ИНН: 663304344780</p>
+                </div>
+
+                <!-- Документы -->
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="/privacy.html" class="text-main text-decoration-none d-block mb-1 hover-highlight">Политика
+                        конфиденциальности</a>
+                    <a href="/offer.html"
+                        class="text-main text-decoration-none d-block hover-highlight">Договор-оферта</a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="calendlyModal" tabindex="-1" aria-labelledby="calendlyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+            <div class="modal-content text-main shadow-lg"
+                style="background-color: var(--bg-card); border: 2px solid var(--accent-primary);">
+
+                <div class="modal-header" style="border-bottom: 1px solid rgba(var(--accent-primary-rgb), 0.25);">
+                    <h5 class="modal-title hero-title" id="calendlyModalLabel" style="font-size: 1.8rem;">Запись на
+                        <span class="highlight">урок</span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Закрыть"></button>
+                </div>
+
+                <div class="modal-body p-0">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/turbocoderwtf/30min"
+                        style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"
+                        async></script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
