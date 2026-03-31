@@ -18,16 +18,15 @@ html {
 body {
     background-color: var(--bg-main);
     color: var(--text-main);
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     overflow-x: hidden;
 }
 
 body::before {
-    content: '';
+    content: "";
     position: fixed;
     inset: 0;
-    background-image:
-        linear-gradient(rgba(var(--accent-primary-rgb), 0.05) 1px, transparent 1px),
+    background-image: linear-gradient(rgba(var(--accent-primary-rgb), 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(var(--accent-primary-rgb), 0.05) 1px, transparent 1px),
         url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L30 10 L30 30 L50 30 L50 10 L70 10 L70 30 L90 30 M10 70 L30 70 L30 90 L50 90 L50 70 L70 70 L70 90 L90 90 M50 10 L50 30 L30 30 L30 50 L10 50 L10 30 M50 70 L50 90 L70 90 L70 70 L90 70 L90 90' stroke='%235C9E4210' stroke-width='3' fill='none'/%3E%3C/svg%3E");
     background-size: 50px 50px, 50px 50px, auto;
@@ -138,10 +137,10 @@ body::before {
 }
 
 .btn-outline-frog:hover {
+    transform: translateY(-2px);
     background-color: var(--accent-primary);
     color: var(--bg-main);
     box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.4);
-    transform: translateY(-2px);
 }
 
 .coding-frog-container {
@@ -228,103 +227,6 @@ body::before {
 
 .lilypad-glow {
     position: absolute;
-    left: 50%;
-    bottom: -18px;
-    transform: translateX(-50%);
-    width: min(85%, 360px);
-    height: 90px;
-    border-radius: 50%;
-    background: rgba(var(--accent-primary-rgb), 0.65);
-    filter: blur(12px);
-    z-index: -1;
-}
-
-.frog-particle {
-    position: absolute;
-    /* Делаем цвет гораздо ярче (70% непрозрачности) */
-    color: rgba(0, 220, 100, 0.7); 
-    
-    /* Добавляем неоновое свечение в стиле Матрицы */
-    text-shadow: 0 0 8px rgba(0, 220, 100, 0.5);
-    
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 2.2rem; /* Увеличили размер (было 1.3rem) */
-    font-weight: bold;
-    pointer-events: none;
-    user-select: none;
-    
-    /* Самое главное: слой 1 (ниже лягушки, у которой слой 2) */
-    z-index: 1; 
-    
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-    animation: spawnParticle 1s ease-out forwards;
-}
-
-/* Саму анимацию @keyframes spawnParticle менять не нужно, оставляй как было! */
-
-/* Анимация разлета партикла */
-@keyframes spawnParticle {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
-    }
-    15% {
-        opacity: 1; /* Быстрое появление */
-    }
-    100% {
-        opacity: 0; /* Медленное затухание */
-        /* Конечные координаты (будут заданы динамически через JS переменные) */
-        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--tr));
-    }
-}
-
-.text-main {
-    color: var(--text-main);
-}
-
-.btn-frog-main {
-    background-color: var(--accent-primary);
-    color: var(--bg-main);
-    border: 2px solid var(--accent-primary);
-    border-radius: 30px;
-    font-weight: 800;
-    text-transform: uppercase;
-    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.4);
-    transition: all 0.3s ease;
-}
-
-.btn-frog-main:hover {
-    background-color: var(--bg-card);
-    color: var(--accent-primary);
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(var(--accent-primary-rgb), 0.7);
-}
-
-.btn-outline-frog {
-    background-color: transparent;
-    color: var(--accent-primary);
-    border: 2px solid var(--accent-primary);
-    border-radius: 30px;
-    font-weight: 800;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-}
-
-.btn-outline-frog:hover {
-    background-color: var(--accent-primary);
-    color: var(--bg-main);
-    box-shadow: 0 0 20px rgba(var(--accent-primary-rgb), 0.4);
-}
-
-
-
-.img-shadow {
-    filter: drop-shadow(0px 0px 15px rgba(168, 255, 133, 0.45));
-}
-
-.lilypad-glow {
-    position: absolute;
     bottom: -20px;
     left: 55%;
     transform: translateX(-50%);
@@ -334,6 +236,25 @@ body::before {
     background: rgba(var(--accent-primary-rgb), 0.8);
     filter: blur(5px);
     z-index: -1;
+}
+
+.frog-particle {
+    position: absolute;
+    color: rgba(0, 220, 100, 0.7);
+    text-shadow: 0 0 8px rgba(0, 220, 100, 0.5);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2.2rem;
+    font-weight: bold;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    animation: spawnParticle 1s ease-out forwards;
+}
+
+.text-main {
+    color: var(--text-main);
 }
 
 .chat-interface {
@@ -456,8 +377,8 @@ body::before {
     padding: 10px;
     box-sizing: border-box;
     display: flex;
-    height: auto; 
-    align-items: stretch; 
+    height: auto;
+    align-items: stretch;
 }
 
 .portfolio-card {
@@ -467,7 +388,7 @@ body::before {
     padding: 2.5rem;
     color: var(--text-main);
     width: 100%;
-    height: 100%; 
+    height: 100%;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -501,7 +422,7 @@ body::before {
 
 .portfolio-details .btn {
     margin-top: auto !important;
-    align-self: flex-start; /* Чтобы кнопка не растягивалась на всю ширину карточки */
+    align-self: flex-start;
 }
 
 .student-frog-art {
@@ -528,7 +449,6 @@ body::before {
 }
 
 .mascot-container {
-    /* Небольшая анимация появления (опционально) */
     animation: floatIn 0.8s ease-out forwards;
 }
 
@@ -537,7 +457,6 @@ body::before {
     border: 2px solid var(--accent-primary);
     border-radius: 24px;
     max-width: 450px;
-    /* Комбинированная тень: общая темная + легкое зеленое свечение */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--accent-primary-rgb), 0.1);
     z-index: 1;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -547,20 +466,18 @@ body::before {
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(var(--accent-primary-rgb), 0.2);
 }
 
-/* Хвостик облачка (указывает влево на десктопе) */
 .speech-bubble .bubble-tail {
     position: absolute;
     top: 50%;
-    left: -18px; /* Выдвигаем за левый край рамки */
+    left: -18px;
     transform: translateY(-50%);
     border-width: 15px 18px 15px 0;
     border-style: solid;
     border-color: transparent var(--accent-primary) transparent transparent;
 }
 
-/* Внутренняя часть хвостика (цвета карточки, чтобы скрыть линию рамки) */
 .speech-bubble .bubble-tail::after {
-    content: '';
+    content: "";
     position: absolute;
     top: -12px;
     left: 3px;
@@ -752,7 +669,7 @@ body::before {
 }
 
 .timeline-step:not(:last-child)::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 95px;
     left: 50%;
@@ -954,18 +871,24 @@ body::before {
     color: var(--bg-main) !important;
     background-color: var(--accent-secondary) !important;
     border-color: var(--accent-secondary) !important;
+    background: rgba(168, 255, 133, 0.1);
+    border: 1px solid rgba(168, 255, 133, 0.3);
 }
 
 .color-middle-bg {
     color: var(--bg-main) !important;
     background-color: var(--accent-primary) !important;
     border-color: var(--accent-primary) !important;
+    background: rgba(208, 223, 164, 0.1);
+    border: 1px solid rgba(208, 223, 164, 0.3);
 }
 
 .color-senior-bg {
     color: var(--bg-main) !important;
     background-color: var(--accent-tertiary) !important;
     border-color: var(--accent-tertiary) !important;
+    background: rgba(122, 174, 122, 0.1);
+    border: 1px solid rgba(122, 174, 122, 0.3);
 }
 
 .lilypad-bullet {
@@ -993,12 +916,11 @@ body::before {
     display: flex;
 }
 
-/* Новая карточка отзыва в стиле портфолио */
 .review-card {
     background: var(--bg-card);
     border: 2px solid rgba(var(--accent-primary-rgb), 0.2);
     border-radius: 24px;
-    padding: 2rem; /* Отступы внутри карточки */
+    padding: 2rem;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
@@ -1009,18 +931,17 @@ body::before {
     box-shadow: 0 15px 50px rgba(var(--accent-primary-rgb), 0.2);
 }
 
-
 .review-screenshot-wrapper {
     position: relative;
-    background: rgba(0, 0, 0, 0.25); 
-    border: 1px dashed rgba(var(--accent-primary-rgb), 0.3); 
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px dashed rgba(var(--accent-primary-rgb), 0.3);
     border-radius: 16px;
     padding: 10px;
-    height: 300px; 
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .review-img {
@@ -1094,7 +1015,7 @@ body::before {
 
 .faq-prompt {
     color: var(--accent-secondary);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     font-weight: 900;
     font-size: 1.2rem;
     transition: transform 0.4s ease, color 0.3s ease;
@@ -1181,26 +1102,25 @@ body::before {
     width: 300px;
 }
 
-/* --- Секция Где мы находимся --- */
 .map-container {
     border: 2px solid rgba(var(--accent-primary-rgb), 0.3);
     height: 400px;
-    background-color: var(--bg-card); 
+    background-color: var(--bg-card);
 }
 
 .google-map-iframe {
     width: 100%;
     height: 100%;
     filter: blur(8px) grayscale(60%);
-    pointer-events: none; /* Запрещаем кликать и скроллить карту */
-    transform: scale(1.05); /* Прячем размытые края */
+    pointer-events: none;
+    transform: scale(1.05);
 }
 
 .map-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(17, 24, 17, 0.6); /* Темная пелена поверх карты */
-    backdrop-filter: blur(2px); 
+    background: rgba(17, 24, 17, 0.6);
+    backdrop-filter: blur(2px);
     z-index: 2;
 }
 
@@ -1216,7 +1136,6 @@ body::before {
     box-shadow: 0 15px 50px rgba(var(--accent-primary-rgb), 0.2);
 }
 
-/* Стили для лягухи, выглядывающей из карточки */
 .location-frog-art {
     width: 180px;
     height: 180px;
@@ -1232,47 +1151,17 @@ body::before {
     object-fit: contain;
 }
 
-/* Адаптив для планшетов и мобилок */
-@media (max-width: 992px) {
-    .location-frog-art {
-        width: 150px;
-        height: 150px;
-        bottom: -35px;
-        right: -10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .map-container {
-        height: 300px;
-    }
-    .location-frog-art {
-        width: 120px;
-        height: 120px;
-        bottom: -25px;
-        right: 0;
-    }
-}
-
-@keyframes floatMapIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* --- Секция "Твой путь и результаты" (#results-path) --- */
 .lilypad-timeline {
     position: relative;
     padding-left: 20px;
 }
 
-/* Вертикальная пунктирная линия, как в workflow */
 .lilypad-timeline::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 20px;
     bottom: 20px;
-    /* Центрируем по иконке: 20px padding + 30px (половина иконки) - 1.5px (половина толщины линии) */
-    left: 48.5px; 
+    left: 48.5px;
     width: 0;
     border-left: 3px dashed rgba(var(--accent-primary-rgb), 0.3);
     z-index: 0;
@@ -1291,7 +1180,6 @@ body::before {
     margin-bottom: 0;
 }
 
-/* Оформление круглой иконки */
 .lilypad-icon {
     width: 60px;
     height: 60px;
@@ -1308,7 +1196,6 @@ body::before {
     padding: 12px;
 }
 
-/* Текстовая карточка в стиле .course-text из workflow */
 .step-text {
     background-color: var(--bg-card);
     border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
@@ -1337,7 +1224,6 @@ body::before {
     line-height: 1.5;
 }
 
-/* Ховер-эффекты: левитация и неоновое свечение */
 .lilypad-step:hover .step-text {
     border-color: var(--accent-primary);
     box-shadow: 0 10px 30px rgba(var(--accent-primary-rgb), 0.2);
@@ -1354,7 +1240,6 @@ body::before {
     background-color: rgba(var(--accent-primary-rgb), 0.1);
 }
 
-/* Анимация для лягушки-выпускника справа */
 .res-frog-wrapper {
     position: relative;
     z-index: 2;
@@ -1367,24 +1252,14 @@ body::before {
     filter: drop-shadow(0px 10px 25px rgba(168, 255, 133, 0.25));
 }
 
-@keyframes floatFrogPath {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-/* ==========================================================================
-   Новая секция отзывов (стиль Портфолио)
-   ========================================================================== */
-
-/* Общая карточка отзыва */
 .new-review-card {
     background: var(--bg-card);
     border: 2px solid rgba(var(--accent-primary-rgb), 0.15);
     border-radius: 30px;
-    overflow: hidden; /* Чтобы лягуха не вылезала за пределы скругления */
+    overflow: hidden;
     transition: all 0.4s ease;
     min-height: 420px;
-    margin: 15px 0; /* Отступ для тени */
+    margin: 15px 0;
 }
 
 .new-review-card:hover {
@@ -1393,7 +1268,6 @@ body::before {
     transform: translateY(-5px);
 }
 
-/* Левый блок: Автор и Лягуха */
 .review-author-block {
     width: 380px;
     background-color: rgba(0, 0, 0, 0.2);
@@ -1401,19 +1275,18 @@ body::before {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Текст внизу */
+    justify-content: flex-end;
     z-index: 1;
 }
 
-/* Декоративная лягушка в отзыве */
 .review-frog-decor {
     position: absolute;
     top: -50px;
     right: -60px;
     width: 320px;
     height: auto;
-    opacity: 0.3; /* Делаем полупрозрачной для фона */
-    transform: rotate(20deg) scaleX(-1); /* Поворот и зеркальное отражение */
+    opacity: 0.3;
+    transform: rotate(20deg) scaleX(-1);
     z-index: 0;
     pointer-events: none;
     transition: all 0.5s ease;
@@ -1424,7 +1297,6 @@ body::before {
     transform: rotate(10deg) scaleX(-1) translate(-20px, 10px);
 }
 
-/* Иконка цитаты декоративная */
 .quote-icon-decor {
     position: absolute;
     top: 20px;
@@ -1436,7 +1308,6 @@ body::before {
     line-height: 1;
 }
 
-/* Блок с информацией об авторе (позиционируется поверх лягушки) */
 .author-info-v2 {
     bottom: 2rem;
     left: 2rem;
@@ -1463,13 +1334,11 @@ body::before {
     display: inline-block;
 }
 
-/* Изменение цвета для варианта ученика */
 .student-variant .author-label-v2 {
     background: rgba(var(--accent-primary-rgb), 0.15);
     color: var(--accent-primary);
 }
 
-/* Мета-данные ученика (возраст, курс) */
 .student-meta-v2 {
     display: flex;
     flex-direction: column;
@@ -1497,7 +1366,6 @@ body::before {
     color: var(--text-heading);
 }
 
-/* Правый блок: Текст отзыва */
 .review-content-block {
     z-index: 1;
     position: relative;
@@ -1523,9 +1391,8 @@ body::before {
     border-left: 3px solid rgba(var(--accent-primary-rgb), 0.2);
 }
 
-/* Линия по центру */
 .frog-timeline::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;
@@ -1536,7 +1403,6 @@ body::before {
     border-radius: 2px;
 }
 
-/* Кружочки на линии */
 .timeline-dot {
     width: 24px;
     height: 24px;
@@ -1555,15 +1421,6 @@ body::before {
     transform: translateY(-10px);
 }
 
-
-
-/* Для мобилок скрываем линию */
-@media (max-width: 767px) {
-    .frog-timeline::before {
-        display: none;
-    }
-}
-
 .course-detail-card {
     background-color: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1576,24 +1433,12 @@ body::before {
     box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
 }
 
-/* Стили для бейджей курсов */
-.color-junior-bg { background: rgba(168, 255, 133, 0.1); color: #A8FF85; border: 1px solid rgba(168, 255, 133, 0.3); }
-.color-middle-bg { background: rgba(208, 223, 164, 0.1); color: #D0DFA4; border: 1px solid rgba(208, 223, 164, 0.3); }
-.color-senior-bg { background: rgba(122, 174, 122, 0.1); color: #7AAE7A; border: 1px solid rgba(122, 174, 122, 0.3); }
-
-/* Иконки-стрелочки */
-.color-junior { color: #A8FF85; }
-.color-middle { color: #D0DFA4; }
-.color-senior { color: #7AAE7A; }
-
-/* Фикс для аккордеона, если он "невидим" */
 .accordion-button:not(.collapsed) {
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--text-heading);
     box-shadow: none;
 }
 
-/* Контейнер и строки таблицы треков */
 .track-row {
     background-color: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1611,32 +1456,15 @@ body::before {
     border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* На мобилках убираем разделительную линию справа */
-@media (max-width: 991.98px) {
-    .track-info {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding-bottom: 15px;
-    }
-}
-
 .badge-track {
     background-color: var(--accent-secondary);
     color: var(--bg-main);
     font-weight: 600;
 }
 
-/* Карточки шагов (курсов) */
 .track-steps {
     gap: 12px;
     padding-left: 20px;
-}
-
-@media (max-width: 991.98px) {
-    .track-steps {
-        padding-left: 0;
-        padding-top: 15px;
-    }
 }
 
 .step-card {
@@ -1671,7 +1499,6 @@ body::before {
     opacity: 0.8;
 }
 
-/* Стрелки между карточками */
 .step-arrow {
     color: rgba(255, 255, 255, 0.3);
     font-weight: bold;
@@ -1680,21 +1507,62 @@ body::before {
     margin: 0 4px;
 }
 
-@media (max-width: 576px) {
-    .step-arrow {
-        display: none; /* Скрываем стрелки на совсем маленьких экранах, чтобы карточки просто переносились */
+@keyframes spawnParticle {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1) rotate(var(--tr));
     }
 }
 
-@media (max-width: 991px) {
-    .step-card {
-        flex: 1 1 100%;
-        max-width: 100%;
+@keyframes floatMapIcon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes floatFrogPath {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 @media (max-width: 992px) {
-    /* Основная обертка слайдера — даем отступы по бокам под кнопки */
+    .location-frog-art {
+        width: 150px;
+        height: 150px;
+        bottom: -35px;
+        right: -10px;
+    }
+
     .review-slider-wrapper {
         padding-left: 30px !important;
         padding-right: 30px !important;
@@ -1703,17 +1571,16 @@ body::before {
     .new-review-card {
         flex-direction: column;
         min-height: auto;
-        overflow: hidden; /* Чтобы лягушка могла вылезать за границы */
+        overflow: hidden;
         margin-top: 20px;
     }
 
-
     .review-author-block {
         width: 100%;
-        min-height: 280px; /* Делаем вертикальную часть больше */
+        min-height: 280px;
         border-right: none;
         border-bottom: 1px solid rgba(var(--accent-primary-rgb), 0.15);
-        padding: 2rem 1.5rem; 
+        padding: 2rem 1.5rem;
         justify-content: flex-end;
         align-items: center;
         border-radius: 30px 30px 0 0;
@@ -1721,11 +1588,11 @@ body::before {
 
     .review-frog-decor {
         display: block !important;
-        opacity: 0.3; 
+        opacity: 0.3;
         top: -50px;
-        right: 100px; 
+        right: 100px;
         left: auto;
-        transform: rotate(15deg) scaleX(-1); 
+        transform: rotate(15deg) scaleX(-1);
         width: 350px;
         z-index: 5;
     }
@@ -1737,7 +1604,7 @@ body::before {
     }
 
     .review-content-block {
-        padding: 60px 25px !important; 
+        padding: 60px 25px !important;
         border-radius: 0 0 30px 30px;
     }
 
@@ -1758,53 +1625,20 @@ body::before {
         justify-content: center;
         background: var(--bg-card) !important;
     }
-    
-    .review-prev-btn { left: 5px !important; }
-    .review-next-btn { right: 5px !important; }
+
+    .review-prev-btn {
+        left: 5px !important;
+    }
+
+    .review-next-btn {
+        right: 5px !important;
+    }
 
     .quote-icon-decor {
         top: 20px;
         left: 20px;
     }
-}
 
-@media (max-width: 576px) {
-    .review-slider-wrapper {
-        padding-left: 30px !important;
-        padding-right: 30px !important;
-    }
-    
-    .review-frog-decor {
-        width: 130px;
-        top: -15px;
-        right: -5px;
-    }
-
-    .review-author-block {
-        min-height: 240px;
-    }
-
-    .review-title-text {
-        font-size: 1.15rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .lilypad-timeline {
-        padding-left: 0;
-    }
-    .lilypad-timeline::before {
-        left: 28.5px; 
-    }
-    .lilypad-step {
-        gap: 15px;
-    }
-    .step-text {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 992px) {
     .hero-title {
         font-size: 2.8rem;
     }
@@ -1841,9 +1675,9 @@ body::before {
 
     .project-img img {
         width: 100%;
-        height: 320px; 
+        height: 320px;
         max-height: none;
-        object-fit: cover; 
+        object-fit: cover;
     }
 
     .portfolio-details {
@@ -1877,7 +1711,7 @@ body::before {
     }
 
     .timeline-step:not(:last-child)::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 92px;
         left: 54px;
@@ -1922,9 +1756,35 @@ body::before {
 }
 
 @media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+
+    .location-frog-art {
+        width: 120px;
+        height: 120px;
+        bottom: -25px;
+        right: 0;
+    }
+
+    .lilypad-timeline {
+        padding-left: 0;
+    }
+
+    .lilypad-timeline::before {
+        left: 28.5px;
+    }
+
+    .lilypad-step {
+        gap: 15px;
+    }
+
+    .step-text {
+        padding: 15px;
+    }
 
     .hero-title {
-        font-size: 2.2rem; 
+        font-size: 2.2rem;
         overflow-wrap: break-word;
     }
 
@@ -1985,9 +1845,9 @@ body::before {
 
     .project-img img {
         width: 100%;
-        height: 260px; 
+        height: 260px;
         max-height: none;
-        object-fit: cover; 
+        object-fit: cover;
     }
 
     .student-frog-art {
@@ -1998,15 +1858,15 @@ body::before {
     }
 
     .review-card {
-        padding: 1.25rem; 
+        padding: 1.25rem;
     }
-    
+
     .review-screenshot-wrapper {
-        height: 200px; 
+        height: 200px;
     }
 
     .prev-btn,
-    .next-btn {
+        .next-btn {
         background: var(--bg-main) !important;
         opacity: 0.9;
     }
@@ -2027,7 +1887,7 @@ body::before {
     }
 
     .mascot-img-wrapper img {
-        transform: scaleX(1) !important; 
+        transform: scaleX(1) !important;
         max-height: 260px !important;
     }
 
@@ -2049,10 +1909,12 @@ body::before {
     .location-card {
         min-height: auto;
     }
+
     .location-overlay {
         padding: 2rem !important;
         min-height: auto;
     }
+
     .map-icon-wrapper {
         width: 60px;
         height: 60px;
@@ -2060,13 +1922,53 @@ body::before {
     }
 }
 
-@keyframes floatIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+@media (max-width: 767px) {
+    .frog-timeline::before {
+        display: none;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+}
+
+@media (max-width: 991.98px) {
+    .track-info {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        padding-bottom: 15px;
+    }
+
+    .track-steps {
+        padding-left: 0;
+        padding-top: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .step-arrow {
+        display: none;
+    }
+
+    .review-slider-wrapper {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+
+    .review-frog-decor {
+        width: 130px;
+        top: -15px;
+        right: -5px;
+    }
+
+    .review-author-block {
+        min-height: 240px;
+    }
+
+    .review-title-text {
+        font-size: 1.15rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .step-card {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }
