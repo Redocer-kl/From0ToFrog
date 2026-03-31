@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FromZeroToFrog - Школа программирования в Ереване</title>
+    <meta name="description" content="Школа программирования FromZeroToFrog в Ереване и онлайн. Учим детей, подростков и взрослых создавать игры (Roblox, Unity), сайты и ботов на Python с нуля. Запишись на бесплатный пробный урок!">
+    <meta name="keywords" content="школа программирования, курсы программирования, Ереван, онлайн, для детей, для подростков, Python, Unity, Roblox, Scratch, IT с нуля">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://frog0tofrog.ru/"> <meta property="og:title" content="Прыгни в IT с FromZeroToFrog 🐸">
+    <meta property="og:description" content="Современная школа программирования в Ереване и онлайн. Практика с первого занятия: от Scratch и Roblox до Python и Fullstack.">
+    <meta property="og:image" content="https://frog0tofrog.ru/static/Normal.png"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Прыгни в IT с FromZeroToFrog 🐸">
+    <meta name="twitter:description" content="Современная школа программирования в Ереване и онлайн. Практика с первого занятия: от Scratch и Roblox до Python и Fullstack.">
+    <meta name="twitter:image" content="https://frog0tofrog.ru/static/Normal.png">
     <link rel="icon" href="static/Normal.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -593,6 +603,51 @@
         </div>
     </section>
 
+    <section id="location" class="container mt-5 pt-5 mb-5">
+        <h2 class="text-center hero-title mb-5">Где мы <span class="highlight">находимся?</span></h2>
+
+        <div class="row align-items-center gy-5 gx-lg-5">
+            
+            <!-- Левая колонка: Заблюренная карта -->
+            <div class="col-lg-6">
+                <div class="map-container position-relative rounded-4 overflow-hidden img-shadow">
+                    <!-- Заглушка Google Maps (Центр Еревана) -->
+                    <iframe class="google-map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195167.35965036496!2d44.360623315757755!3d40.15350051179672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa2dab8fc8b5b%3A0x3d1479ae87da526a!2z0JXRgNC10LLQsNC9LCDQkNGA0LzQtdC90LjRjw!5e0!3m2!1sru!2s!4v1710000000000!5m2!1sru!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    
+                    <!-- Оверлей поверх карты с сообщением -->
+                    <div class="map-overlay d-flex flex-column justify-content-center align-items-center text-center p-4">
+                        <i class="bi bi-tools mb-3" style="font-size: 3rem; color: var(--accent-primary);"></i>
+                        <h4 class="fw-bold text-white mb-0">Готовим класс <br> к открытию</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 position-relative">
+                <div class="location-info p-4 p-md-5 rounded-4 border border-1" style="background-color: var(--bg-card); border-color: rgba(var(--accent-primary-rgb), 0.2) !important;">
+                    <h3 class="fw-bold text-heading mb-3">Оффлайн в Ереване <br><span class="highlight">уже скоро!</span></h3>
+                    
+                    <p class="text-main fs-5 mb-4 opacity-75" style="line-height: 1.6;">
+                        Прямо сейчас мы ищем лучшее помещение и делаем там уютный ремонт. Поэтому оффлайн-уроков временно нет. 
+                    </p>
+                    
+                    <div class="alert bg-dark bg-opacity-50 border-start border-4 text-main mb-4 rounded-3 p-3 shadow-sm" style="border-color: var(--accent-primary) !important;">
+                        <strong>Секретный бонус:</strong> запишись на онлайн-уроки сейчас, и переведись в оффлайн после открытия <span class="highlight fw-bold">без увеличения стоимости</span>!
+                    </div>
+                    
+                    <button type="button" class="btn btn-frog-main w-100 py-3 fs-5 shadow-glow" data-bs-toggle="modal" data-bs-target="#calendlyModal">
+                        Забронировать цену онлайн
+                    </button>
+                </div>
+                
+                <div class="location-frog-art position-absolute">
+                    <img src="static/Builder.png" alt="Frog Builder" class="img-shadow"> 
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
     <section id="workflow" class="container mt-5 pt-5 mb-5">
         <h2 class="hero-title mb-5 text-center">Как проходят наши занятия</h2>
 
@@ -781,12 +836,14 @@
         </div>
     </section>
 
+
     <footer id="contacts" class="footer-section container-fluid mt-5">
         <div class="peeking-frog-footer-new"><img src="static/Peeking.png" alt="Peeking Frog"></div>
 
         <div class="container footer-contact-card text-center text-lg-start">
             <div class="row align-items-center">
 
+                <!-- Левая колонка с призывом -->
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <h2 class="hero-title mb-4"><span class="highlight">Жду</span> тебя на занятиях!</h2>
 
@@ -808,6 +865,7 @@
                     </div>
                 </div>
 
+                <!-- Правая колонка с карточкой -->
                 <div class="col-lg-6 position-relative text-center">
                     <div class="p-4 rounded-4 rotate-2 shadow-lg"
                         style="background-color: var(--bg-card); border: 1px solid rgba(var(--accent-primary-rgb), 0.25);">
@@ -815,8 +873,7 @@
 
                         <p class="small text-main mb-4" style="opacity: 0.9;">
                             Первый онлайн-урок — 0₽. <br> Выбери удобное время в календаре или задай вопрос, если
-                            остались
-                            сомнения!
+                            остались сомнения!
                         </p>
 
                         <div class="d-flex flex-column gap-3">
@@ -837,9 +894,29 @@
 
             <hr class="my-5" style="border-color: rgba(var(--accent-primary-rgb), 0.25);">
 
-            <p class="text-center fw-bold text-main mb-0" style="opacity: 0.5;">
-                © 2026 FromZeroToFrog. Сделано с любовью к коду и лягухам.
-            </p>
+            <div class="row align-items-center text-main pb-4" style="opacity: 0.65; font-size: 0.85rem;">
+
+                <!-- Копирайт -->
+                <div class="col-md-4 text-center text-md-start mb-3 mb-md-0">
+                    <p class="mb-0 fw-bold">© 2026 FromZeroToFrog.</p>
+                    <p class="mb-0">Сделано с любовью к коду и лягухам.</p>
+                </div>
+
+                <!-- Реквизиты -->
+                <div class="col-md-4 text-center mb-3 mb-md-0">
+                    <p class="mb-0"><strong>Реквизиты:</strong></p>
+                    <p class="mb-0">Плательщик НПД: Клюкин Даниил Михайлович</p>
+                    <p class="mb-0">ИНН: 663304344780</p>
+                </div>
+
+                <!-- Документы -->
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="/privacy.html" class="text-main text-decoration-none d-block mb-1 hover-highlight">Политика
+                        конфиденциальности</a>
+                    <a href="/offer.html" class="text-main text-decoration-none d-block hover-highlight">Договор-оферта</a>
+                </div>
+
+            </div>
         </div>
     </footer>
 
