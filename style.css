@@ -1285,7 +1285,7 @@ body::before {
     right: -60px;
     width: 320px;
     height: auto;
-    opacity: 0.3;
+    opacity: 0.2;
     transform: rotate(20deg) scaleX(-1);
     z-index: 0;
     pointer-events: none;
@@ -1293,7 +1293,7 @@ body::before {
 }
 
 .new-review-card:hover .review-frog-decor {
-    opacity: 0.7;
+    opacity: 0.5;
     transform: rotate(10deg) scaleX(-1) translate(-20px, 10px);
 }
 
