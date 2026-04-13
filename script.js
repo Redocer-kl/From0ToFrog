@@ -304,7 +304,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const eyeCenterX = rect.left + rect.width / 2;
         const eyeCenterY = rect.top + rect.height / 2;
 
-        const angle = Math.atan2(clientY - eyeCenterY, clientX - eyeCenterX);
+        const angle = Math.atan2(
+            clientY - eyeCenterY, 
+            clientX - eyeCenterX
+        );
 
         const eyeRadiusX = rect.width / 2;
         const eyeRadiusY = rect.height / 2;
